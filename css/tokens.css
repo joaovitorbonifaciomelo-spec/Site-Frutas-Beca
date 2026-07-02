@@ -1,0 +1,58 @@
+/* =====================================================================
+   FRUTAS BECA — Design Tokens
+   "A solidez da tradição com a inteligência do fornecimento moderno."
+   ===================================================================== */
+
+:root {
+  /* ---------- CORES DE MARCA ---------- */
+  --verde-folha:        #16350B;
+  --verde-folha-900:    #0C1F06;
+  --verde-folha-800:    #16350B;
+  --verde-folha-700:    #1E4A12;
+  --verde-folha-600:    #2A6318;
+  --verde-folha-500:    #387F20;
+
+  --laranja:            #FC5101;
+  --laranja-700:        #C23D00;
+  --laranja-600:        #E04701;
+  --laranja-500:        #FC5101;
+  --laranja-400:        #FF7536;
+  --laranja-300:        #FFA176;
+  --laranja-100:        #FFE7DA;
+
+  --lima:               #A6D40A;
+  --lima-700:           #6E8E04;
+  --lima-600:           #88B007;
+  --lima-500:           #A6D40A;
+  --lima-400:           #BCE53A;
+  --lima-100:           #EEF8CE;
+
+  /* ---------- NEUTROS QUENTES ---------- */
+  --papel:              #FAF9F5;
+  --creme:              #F3EFE6;
+  --areia:              #E7E1D3;
+  --linha:              #DAD3C2;
+  --pedra-400:          #A89F8C;
+  --pedra-600:          #6B6454;
+  --tinta-suave:        #3A4232;
+  --tinta:              #1A2415;
+  --branco:             #FFFFFF;
+
+  /* ---------- SEMÂNTICAS ---------- */
+  --sucesso:            #2A6318;
+  --atencao:            #E0A100;
+  --erro:               #C0341D;
+  --info:               #1E4A12;
+
+  /* ---------- TIPOGRAFIA ---------- */
+  --fonte: 'Montserrat', -apple-system, system-ui, sans-serif;
+
+  /* ---------- TRANSIÇÕES ---------- */
+  --t-rapida: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-media:  240ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- SOMBRAS ---------- */
+  --sombra-sm:  0 1px 2px rgba(26,36,21,0.06), 0 1px 3px rgba(26,36,21,0.08);
+  --sombra-md:  0 4px 12px rgba(26,36,21,0.08), 0 2px 4px rgba(26,36,21,0.06);
+  --sombra-lg:  0 12px 32px rgba(26,36,21,0.12), 0 4px 8px rgba(26,36,21,0.06);
+}
