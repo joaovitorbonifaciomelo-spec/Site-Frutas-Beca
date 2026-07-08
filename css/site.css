@@ -187,6 +187,10 @@ a { color: inherit; }
   .hero p.sub { margin-left: auto; margin-right: auto; }
   .hero__cta { justify-content: center; }
 }
+/* Desktop: hero ancorado mais à esquerda (aproveita a área escura do gradiente) */
+@media (min-width: 769px) {
+  .hero__in { margin-left: clamp(40px, 6vw, 96px); margin-right: auto; max-width: 720px; }
+}
 
 /* ---------- STATS ---------- */
 .stats-band { background: var(--surface-2); }
