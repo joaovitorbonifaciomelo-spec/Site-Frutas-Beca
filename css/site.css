@@ -187,8 +187,8 @@ a { color: inherit; }
   .hero h1 { margin-left: auto; margin-right: auto; }
   .hero p.sub { margin-left: auto; margin-right: auto; }
   .hero__cta { justify-content: center; }
-  /* Overlay uniforme e mais claro (texto centralizado não precisa do gradiente lateral) */
-  .hero__overlay { background: rgba(12, 31, 6, 0.6); }
+  /* Overlay uniforme (texto centralizado não precisa do gradiente lateral) */
+  .hero__overlay { background: rgba(12, 31, 6, 0.68); }
 }
 /* Desktop: hero ancorado mais à esquerda (aproveita a área escura do gradiente) */
 @media (min-width: 769px) {
