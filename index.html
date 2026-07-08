@@ -46,9 +46,8 @@
 
 <!-- HERO -->
 <header class="hero" id="topo">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto">
-    <source src="https://mdn.github.io/shared-assets/videos/flower.mp4" type="video/mp4">
-  </video>
+  <video class="hero__video" autoplay muted loop playsinline preload="auto"
+         data-src-desktop="videos/hero-desktop.mp4" data-src-mobile="videos/hero-mobile.mp4"></video>
   <div class="hero__overlay"></div>
   <div class="wrap hero__in">
     <span class="badge" data-hero>Distribuidora de hortifruti · desde 1982</span>
@@ -443,10 +442,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-  // Hero video autoplay
+  // Hero video: escolhe a fonte por tela (desktop/mobile) + autoplay
   (function(){
     var v = document.querySelector('.hero__video');
     if (!v) return;
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    var src = isMobile ? v.getAttribute('data-src-mobile') : v.getAttribute('data-src-desktop');
+    if (src) {
+      var s = document.createElement('source');
+      s.src = src; s.type = 'video/mp4';
+      v.appendChild(s);
+      v.load();
+    }
     function tryPlay(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
     if (v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay);
     window.addEventListener('pointerdown', tryPlay, { once: true });

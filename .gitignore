@@ -1,6 +1,10 @@
 # Configurações locais do Claude Code
 .claude/
 
+# Vídeos originais em 4K/HEVC (masters — não versionar; use os comprimidos em videos/)
+assets/site horizontal.mp4
+assets/site vertical.mp4
+
 # Sistema
 Thumbs.db
 Desktop.ini
