@@ -179,6 +179,14 @@ a { color: inherit; }
   .hero__cta .btn { width: 100%; justify-content: center; }
   .hero p.sub { max-width: 100%; }
 }
+/* Mobile: hero centralizado */
+@media (max-width: 768px) {
+  .hero__in { text-align: center; }
+  .hero .badge { justify-content: center; }
+  .hero h1 { margin-left: auto; margin-right: auto; }
+  .hero p.sub { margin-left: auto; margin-right: auto; }
+  .hero__cta { justify-content: center; }
+}
 
 /* ---------- STATS ---------- */
 .stats-band { background: var(--surface-2); }
