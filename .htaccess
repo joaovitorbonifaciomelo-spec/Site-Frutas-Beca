@@ -1,0 +1,8 @@
+# Redireciona www -> sem www, em definitivo (301).
+# Sem isso o Google ve www.frutasbeca.com e frutasbeca.com como
+# duas paginas identicas, e divide a relevancia entre as duas.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.frutasbeca\.com$ [NC]
+  RewriteRule ^(.*)$ https://frutasbeca.com/$1 [R=301,L]
+</IfModule>
