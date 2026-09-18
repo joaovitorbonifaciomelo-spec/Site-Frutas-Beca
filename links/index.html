@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frutas Beca | Links</title>
+<meta name="description" content="Fale com a Frutas Beca no WhatsApp, acesse o site, veja a localização no CEASA de Goiânia e fale direto com um vendedor.">
+<link rel="canonical" href="https://frutasbeca.com/links/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#16350B">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Frutas Beca">
+<meta property="og:url" content="https://frutasbeca.com/links/">
+<meta property="og:title" content="Frutas Beca">
+<meta property="og:description" content="Qualidade de quem produz, confiança de quem entrega. WhatsApp, site, localização e vendedores em um só lugar.">
+<meta property="og:image" content="https://frutasbeca.com/assets/og-links.jpg">
+<meta property="og:image:secure_url" content="https://frutasbeca.com/assets/og-links.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Frutas Beca — Qualidade de quem produz, confiança de quem entrega.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frutas Beca">
+<meta name="twitter:description" content="Qualidade de quem produz, confiança de quem entrega.">
+<meta name="twitter:image" content="https://frutasbeca.com/assets/og-links.jpg">
+
+<link rel="icon" type="image/svg+xml" href="../assets/badge-verde.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+<link rel="preload" as="image" href="../videos/links-poster.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/logo.svg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   FRUTAS BECA — /links · hub de direcionamento (link da bio)
+   Auto-contido: não depende do CSS/JS da homepage.
+   ===================================================================== */
+:root {
+  --verde:   #16350B;
+  --verde-9: #0A1A05;
+  --lima:    #A6D40A;
+  --laranja: #FC5101;
+  --papel:   #FAF9F5;
+  --fonte:   'Montserrat', -apple-system, system-ui, sans-serif;
+
+  --glass-bg:     linear-gradient(135deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.05) 100%), rgba(10,26,5,.16);
+  --glass-bg-hi:  linear-gradient(135deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.10) 100%), rgba(10,26,5,.16);
+  --glass-line:   rgba(255,255,255,.26);
+  --glass-shadow: 0 10px 30px rgba(0,0,0,.16);
+  --blur: blur(26px) saturate(160%);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  font-family: var(--fonte);
+  color: #fff;
+  background: var(--verde-9);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+body.is-locked { position: fixed; left: 0; right: 0; overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+img, svg, video { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid var(--lima); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- FUNDO: poster (CSS) + vídeo + véu localizado ---------- */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: var(--verde-9) url("../videos/links-poster.jpg") center / cover no-repeat;
+}
+.bg video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.bg video.is-playing { opacity: 1; }
+.bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,26,5,.62) 0%, rgba(10,26,5,.26) 24%, rgba(10,26,5,.12) 50%, rgba(10,26,5,.30) 76%, rgba(10,26,5,.78) 100%),
+    radial-gradient(85% 60% at 50% 50%, rgba(10,26,5,0) 55%, rgba(10,26,5,.28) 100%);
+}
+
+/* ---------- COLUNA / CARTÃO ---------- */
+.hub {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  padding: calc(22px + var(--sat)) 20px calc(20px + var(--sab));
+}
+
+/* topo */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  flex: 0 0 auto;
+}
+.brand__logo {
+  width: min(54%, 214px);
+  height: auto;
+  /* o wordmark do SVG fica ~2% à direita do centro geométrico (swoosh à esquerda, TM à direita) */
+  transform: translateX(-2%);
+  filter: drop-shadow(0 8px 22px rgba(0,0,0,.4));
+}
+.brand__tag {
+  margin: 14px 0 0;
+  max-width: 26ch;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .01em;
+  color: rgba(255,255,255,.86);
+  text-shadow: 0 1px 10px rgba(0,0,0,.5);
+}
+
+/* meio */
+.links {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 26px 0 22px;
+  list-style: none;
+  margin: 0;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 78px;
+  padding: 14px 16px 14px 14px;
+  border-radius: 22px;
+  border: 1px solid var(--glass-line);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(255,255,255,.04);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background .2s var(--ease), transform .12s var(--ease), border-color .2s var(--ease), opacity .12s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* reflexo de vidro */
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 28%, rgba(255,255,255,0) 50%);
+}
+.tile:hover { background: var(--glass-bg-hi); border-color: rgba(255,255,255,.4); }
+.tile:active, .tile.is-pressed { transform: scale(.975); opacity: .92; background: var(--glass-bg-hi); }
+
+.tile__ic {
+  flex: none;
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+}
+.tile__ic svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tile__ic svg.fill { fill: #fff; stroke: none; }
+.tile__t { flex: 1; min-width: 0; text-shadow: 0 1px 6px rgba(0,0,0,.25); }
+.tile__t b { display: block; font-size: 16px; font-weight: 700; line-height: 1.2; letter-spacing: -.015em; }
+.tile__t span { display: block; margin-top: 3px; font-size: 12.5px; font-weight: 500; line-height: 1.3; color: rgba(255,255,255,.66); }
+.tile__go { flex: none; width: 16px; height: 16px; stroke: rgba(255,255,255,.5); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s var(--ease), stroke .2s var(--ease); }
+.tile:hover .tile__go, .tile:active .tile__go, .tile.is-pressed .tile__go { transform: translateX(3px); stroke: #fff; }
+
+/* CTA principal */
+.tile--main {
+  min-height: 94px;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #FF7A36 0%, var(--laranja) 55%, #E84A00 100%);
+  border-color: rgba(255,255,255,.42);
+  box-shadow: 0 16px 40px rgba(252,81,1,.42), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.tile--main::before { background: linear-gradient(115deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 30%, rgba(255,255,255,0) 55%); }
+.tile--main:hover { background: linear-gradient(135deg, #FF8A4A 0%, #FF5C10 55%, #F04D00 100%); border-color: rgba(255,255,255,.6); }
+.tile--main:active, .tile--main.is-pressed { background: linear-gradient(135deg, #FF8A4A 0%, #FF5C10 55%, #F04D00 100%); }
+.tile--main .tile__ic { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.38); width: 52px; height: 52px; }
+.tile--main .tile__ic svg { width: 28px; height: 28px; }
+.tile--main .tile__t b { font-size: 21px; font-weight: 800; letter-spacing: -.02em; }
+.tile--main .tile__t span { color: rgba(255,255,255,.92); font-size: 13.5px; }
+.tile--main .tile__go { stroke: #fff; width: 18px; height: 18px; }
+
+/* rodapé: ações terciárias */
+.foot { flex: 0 0 auto; text-align: center; }
+.social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.72);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background .2s var(--ease), color .2s var(--ease), transform .12s var(--ease);
+}
+.chip:hover { background: rgba(255,255,255,.1); color: #fff; }
+.chip:active { transform: scale(.96); }
+.chip svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.chip svg.stroke { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.chip--icon { width: 44px; padding: 0; justify-content: center; }
+.chip--icon span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.chip { position: relative; }
+
+/* ---------- ENTRADA SUAVE ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.js .brand, .js .links > li, .js .foot { animation: rise .5s var(--ease) both; }
+.js .links > li:nth-child(1) { animation-delay: .06s; }
+.js .links > li:nth-child(2) { animation-delay: .11s; }
+.js .links > li:nth-child(3) { animation-delay: .16s; }
+.js .links > li:nth-child(4) { animation-delay: .21s; }
+.js .foot { animation-delay: .28s; }
+
+/* ---------- BOTTOM SHEET ---------- */
+.veil {
+  position: fixed; inset: 0;
+  z-index: 40;
+  background: rgba(10,26,5,.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.veil.is-open { opacity: 1; pointer-events: auto; }
+.sheet {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 50;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  transform: translate(-50%, 104%);
+  transition: transform .38s var(--ease), visibility 0s linear .38s;
+  border-radius: 30px 30px 0 0;
+  border: 1px solid rgba(255,255,255,.18);
+  border-bottom: 0;
+  background: linear-gradient(180deg, rgba(22,53,11,.62) 0%, rgba(10,26,5,.78) 100%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  backdrop-filter: blur(30px) saturate(160%);
+  box-shadow: 0 -20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.2);
+  padding: 10px 20px calc(24px + var(--sab));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  will-change: transform;
+  visibility: hidden;
+}
+.sheet.is-open { transform: translate(-50%, 0); visibility: visible; transition: transform .38s var(--ease); }
+.sheet.is-dragging { transition: none; }
+
+.sheet__handle {
+  width: 44px; height: 5px;
+  margin: 4px auto 14px;
+  border-radius: 3px;
+  background: rgba(255,255,255,.38);
+  cursor: grab;
+}
+.sheet__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.sheet__head h2 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.sheet__head p { margin: 5px 0 0; font-size: 13.5px; font-weight: 500; color: rgba(255,255,255,.7); }
+.sheet__close {
+  flex: none;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-line);
+  background: var(--glass-bg);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .2s var(--ease), transform .12s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.sheet__close:hover { background: var(--glass-bg-hi); }
+.sheet__close:active { transform: scale(.94); }
+.sheet__close svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2.2; stroke-linecap: round; }
+
+.vends { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.vend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 76px;
+  padding: 12px 12px 12px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.05) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+  transition: background .2s var(--ease), transform .12s var(--ease), border-color .2s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.vend:hover { background: rgba(255,255,255,.13); }
+.vend:active, .vend.is-pressed { transform: scale(.985); }
+.vend.is-hi { border-color: var(--lima); box-shadow: 0 0 0 1px var(--lima), 0 10px 26px rgba(166,212,10,.18), inset 0 1px 0 rgba(255,255,255,.14); }
+.vend__av {
+  flex: none;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: .02em;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.35);
+  background: linear-gradient(135deg, #387F20, #1E4A12);
+}
+.vend__av.o { background: linear-gradient(135deg, #FF7536, #E04701); }
+.vend__av.l { background: linear-gradient(135deg, #88B007, #2A6318); }
+.vend__av.m { background: linear-gradient(135deg, #E04701, #1E4A12); }
+.vend__av svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.vend__t { flex: 1; min-width: 0; }
+.vend__t b { display: block; font-size: 16.5px; font-weight: 700; letter-spacing: -.01em; }
+.vend__t span { display: block; margin-top: 2px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.66); }
+.vend__wa {
+  flex: none;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--lima);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 16px rgba(166,212,10,.3);
+}
+.vend__wa svg { width: 26px; height: 26px; fill: var(--verde); }
+
+/* sheet: localização */
+.addr {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 16px 16px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.05) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+}
+.addr__ic { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(166,212,10,.16); border: 1px solid rgba(166,212,10,.35); }
+.addr__ic svg { width: 20px; height: 20px; stroke: var(--lima); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.addr b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+.addr p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,.78); }
+.addr small { display: block; margin-top: 8px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.6); }
+.sheet__actions { display: grid; gap: 10px; margin-top: 14px; }
+.act {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background .2s var(--ease), transform .12s var(--ease);
+}
+.act:hover { background: rgba(255,255,255,.18); }
+.act:active { transform: scale(.97); }
+.act svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.act--primary { background: var(--lima); color: var(--verde); border-color: transparent; box-shadow: 0 10px 26px rgba(166,212,10,.28); }
+.act--primary:hover { background: #B6E11F; }
+
+/* ---------- TOAST ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(22px + var(--sab));
+  z-index: 60;
+  transform: translate(-50%, 16px);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100% - 32px);
+  padding: 12px 16px 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(10,26,5,.82);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.4);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: opacity .22s var(--ease), transform .22s var(--ease);
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast button {
+  border: 0;
+  border-radius: 999px;
+  min-height: 34px;
+  padding: 0 12px;
+  background: var(--lima);
+  color: var(--verde);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.toast button:empty { display: none; }
+
+@media (max-width: 400px) {
+  .hub { padding-inline: 16px; }
+}
+
+/* ---------- MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .bg video { display: none; }
+  .js .brand, .js .links > li, .js .foot { animation: none; }
+  .tile, .chip, .sheet, .veil, .vend, .sheet__close, .act, .toast { transition: none; }
+}
+
+/* ---------- ≥ 600px: cartão premium centralizado ---------- */
+@media (min-width: 600px) {
+  body { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 32px 20px; }
+  .hub {
+    min-height: 0;
+    height: min(860px, calc(100vh - 64px));
+    height: min(860px, calc(100dvh - 64px));
+    width: 430px;
+    padding: 36px 28px 28px;
+    border-radius: 44px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: linear-gradient(180deg, rgba(10,26,5,.30) 0%, rgba(10,26,5,.12) 40%, rgba(10,26,5,.34) 100%);
+    -webkit-backdrop-filter: blur(6px) saturate(130%);
+    backdrop-filter: blur(6px) saturate(130%);
+    box-shadow: 0 40px 100px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.14);
+    overflow-y: auto;
+  }
+  .bg::after {
+    background:
+      radial-gradient(60% 60% at 50% 50%, rgba(10,26,5,0) 0%, rgba(10,26,5,.55) 100%),
+      linear-gradient(180deg, rgba(10,26,5,.3), rgba(10,26,5,.55));
+  }
+  .sheet { max-height: 80vh; border-radius: 30px; bottom: 24px; transform: translate(-50%, calc(100% + 40px)); }
+  .sheet.is-open { transform: translate(-50%, 0); }
+  .toast { bottom: 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Fundo: poster (CSS) + vídeo injetado após o load -->
+<div class="bg" aria-hidden="true">
+  <video muted loop playsinline preload="none" poster="../videos/links-poster.jpg"
+         data-src-hd="../videos/links-bg.mp4"
+         data-src-sd="../videos/links-bg-sd.mp4"></video>
+</div>
+
+<main class="hub" id="hub">
+  <header class="brand">
+    <img class="brand__logo" src="../assets/logo.svg" alt="Frutas Beca" width="1109" height="301" fetchpriority="high">
+    <p class="brand__tag">Qualidade de quem produz, confiança de quem entrega.</p>
+  </header>
+
+  <ul class="links">
+    <li>
+      <a class="tile tile--main" id="waMain" data-wa="5562999212594" data-track="whatsapp_main"
+         href="https://wa.me/5562999212594?text=Ol%C3%A1!%20Vim%20pelo%20link%20da%20bio%20da%20Frutas%20Beca%20no%20Instagram." target="_blank" rel="noopener">
+        <span class="tile__ic"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg></span>
+        <span class="tile__t"><b>WhatsApp</b><span>Fale conosco agora</span></span>
+        <svg class="tile__go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li>
+      <a class="tile" id="siteLink" href="../" data-track="site">
+        <span class="tile__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span>
+        <span class="tile__t"><b>Nosso site</b><span>Conheça mais sobre a Beca</span></span>
+        <svg class="tile__go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li>
+      <button type="button" class="tile" id="openLoc" data-track="localizacao" aria-haspopup="dialog" aria-controls="sheetLoc" aria-expanded="false">
+        <span class="tile__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <span class="tile__t"><b>Localização</b><span>Venha nos visitar</span></span>
+        <svg class="tile__go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="tile" id="openVend" data-track="vendedores" aria-haspopup="dialog" aria-controls="sheetVend" aria-expanded="false">
+        <span class="tile__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+        <span class="tile__t"><b>Falar com vendedores</b><span>Nosso time está pronto</span></span>
+        <svg class="tile__go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </li>
+  </ul>
+
+  <footer class="foot">
+    <ul class="social">
+      <li><a class="chip" href="https://instagram.com/frutasbeca" target="_blank" rel="noopener" data-track="instagram" aria-label="Instagram @frutasbeca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+        @frutasbeca
+      </a></li>
+      <li><button type="button" class="chip chip--icon" id="saveContact" data-track="salvar_contato" aria-label="Salvar contato">
+        <svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M16 11h6"/></svg>
+        <span>Salvar</span>
+      </button></li>
+      <li><button type="button" class="chip chip--icon" id="shareHub" data-track="compartilhar" aria-label="Compartilhar">
+        <svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+        <span>Compartilhar</span>
+      </button></li>
+    </ul>
+  </footer>
+</main>
+
+<!-- Véu compartilhado dos sheets -->
+<div class="veil" id="veil"></div>
+
+<!-- Sheet: vendedores -->
+<section class="sheet" id="sheetVend" role="dialog" aria-modal="true" aria-labelledby="sheetVendTitle" tabindex="-1">
+  <div class="sheet__handle" aria-hidden="true"></div>
+  <div class="sheet__head">
+    <div>
+      <h2 id="sheetVendTitle">Vendedores</h2>
+      <p>Fale direto com nosso time.</p>
+    </div>
+    <button type="button" class="sheet__close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <ul class="vends" id="vends">
+    <li><a class="vend" data-vend="elias" data-wa="5562991888595" href="https://wa.me/5562991888595?text=Ol%C3%A1%2C%20Elias!%20Vim%20pelo%20link%20da%20bio%20da%20Frutas%20Beca%20no%20Instagram." target="_blank" rel="noopener" aria-label="Elias — WhatsApp (62) 99188-8595">
+      <span class="vend__av m" aria-hidden="true">EL</span>
+      <span class="vend__t"><b>Elias</b><span>Atendimento e pedidos</span></span>
+      <span class="vend__wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg></span>
+    </a></li>
+    <li><a class="vend" data-vend="marcia" data-wa="5562999212594" href="https://wa.me/5562999212594?text=Ol%C3%A1%2C%20M%C3%A1rcia!%20Vim%20pelo%20link%20da%20bio%20da%20Frutas%20Beca%20no%20Instagram." target="_blank" rel="noopener" aria-label="Márcia — WhatsApp (62) 99921-2594">
+      <span class="vend__av" aria-hidden="true">MA</span>
+      <span class="vend__t"><b>Márcia</b><span>Atendimento e pedidos</span></span>
+      <span class="vend__wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg></span>
+    </a></li>
+    <li><a class="vend" data-vend="adirlei" data-wa="5562981489182" href="https://wa.me/5562981489182?text=Ol%C3%A1%2C%20Adirlei!%20Vim%20pelo%20link%20da%20bio%20da%20Frutas%20Beca%20no%20Instagram." target="_blank" rel="noopener" aria-label="Adirlei — WhatsApp (62) 98148-9182">
+      <span class="vend__av o" aria-hidden="true">AD</span>
+      <span class="vend__t"><b>Adirlei</b><span>Atendimento e pedidos</span></span>
+      <span class="vend__wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg></span>
+    </a></li>
+    <li><a class="vend" data-vend="savio" data-wa="5562999271316" href="https://wa.me/5562999271316?text=Ol%C3%A1%2C%20S%C3%A1vio!%20Vim%20pelo%20link%20da%20bio%20da%20Frutas%20Beca%20no%20Instagram." target="_blank" rel="noopener" aria-label="Sávio — WhatsApp (62) 99927-1316">
+      <span class="vend__av l" aria-hidden="true">SA</span>
+      <span class="vend__t"><b>Sávio</b><span>Atendimento e pedidos</span></span>
+      <span class="vend__wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg></span>
+    </a></li>
+  </ul>
+</section>
+
+<!-- Sheet: localização -->
+<section class="sheet" id="sheetLoc" role="dialog" aria-modal="true" aria-labelledby="sheetLocTitle" tabindex="-1">
+  <div class="sheet__handle" aria-hidden="true"></div>
+  <div class="sheet__head">
+    <div>
+      <h2 id="sheetLocTitle">Localização</h2>
+      <p>Venha nos visitar no CEASA.</p>
+    </div>
+    <button type="button" class="sheet__close" data-close aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="addr">
+    <span class="addr__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+    <div>
+      <b>CEASA de Goiânia</b>
+      <p id="addrText">Galpão 4, Box 5, A6A<br>Goiânia — GO</p>
+      <small>Seg a Sáb · 7h às 18h</small>
+    </div>
+  </div>
+  <div class="sheet__actions">
+    <a class="act act--primary" id="mapsLink" href="https://www.google.com/maps/search/?api=1&query=CEASA+de+Goi%C3%A2nia+Galp%C3%A3o+4+Box+5+A6A" target="_blank" rel="noopener" data-track="maps">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 20l-5 2V6l5-2 6 2 5-2v16l-5 2-6-2zM9 4v16M15 6v16"/></svg>
+      Abrir no Google Maps
+    </a>
+    <button type="button" class="act" id="copyAddr">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copiar endereço
+    </button>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button type="button" id="toastAct" aria-label="Ação"></button></div>
+
+<script>
+(function () {
+  'use strict';
+  var d = document, w = window;
+  d.documentElement.classList.add('js');
+
+  /* ---------- DADOS REAIS (única fonte de verdade desta página) ---------- */
+  var CONFIG = {
+    nome: 'Frutas Beca',
+    site: 'https://frutasbeca.com/',
+    hub: 'https://frutasbeca.com/links/',
+    instagram: 'https://instagram.com/frutasbeca',
+    geral: '5562999212594',     // WhatsApp de atendimento geral da Frutas Beca (CTA principal + vCard)
+    endereco: 'CEASA de Goiânia — Galpão 4, Box 5, A6A, Goiânia - GO',
+    horario: 'Seg a Sáb, 7h às 18h',
+    msg: 'Olá! Vim pelo link da bio da Frutas Beca no Instagram.'
+  };
+
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var isAndroid = /Android/i.test(ua);
+  var isMobile = isIOS || isAndroid;
+  var inApp = /Instagram|FBAN|FBAV|FB_IAB/i.test(ua);
+  var reduce = w.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- ANALYTICS (sem plataforma nova: dataLayer/gtag se existirem) ---------- */
+  function track (name, params) {
+    var ev = { event: 'hub_' + name, hub: 'links' };
+    if (params) for (var k in params) ev[k] = params[k];
+    try { (w.dataLayer = w.dataLayer || []).push(ev); } catch (e) {}
+    try { if (typeof w.gtag === 'function') w.gtag('event', 'hub_' + name, params || {}); } catch (e) {}
+  }
+  track('open', { referrer: d.referrer ? d.referrer.split('/')[2] : '', in_app: inApp });
+
+  /* ---------- TOAST ---------- */
+  var toast = d.getElementById('toast'), toastMsg = d.getElementById('toastMsg'), toastAct = d.getElementById('toastAct'), toastT = null, toastFn = null;
+  function showToast (msg, actionLabel, actionFn, ms) {
+    toastMsg.textContent = msg;
+    toastAct.textContent = actionLabel || '';
+    toastFn = actionFn || null;
+    toast.classList.add('is-on');
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { toast.classList.remove('is-on'); }, ms || (actionLabel ? 5000 : 2200));
+  }
+  toastAct.addEventListener('click', function () { if (toastFn) toastFn(); toast.classList.remove('is-on'); });
+
+  /* ---------- CLIPBOARD ---------- */
+  function copyText (text) {
+    if (navigator.clipboard && w.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (res, rej) {
+      var ta = d.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+      d.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false; try { ok = d.execCommand('copy'); } catch (e) {}
+      d.body.removeChild(ta); ok ? res() : rej();
+    });
+  }
+
+  /* ---------- PRESS STATE + PROTEÇÃO CONTRA TOQUE DUPLO ---------- */
+  var busy = false;
+  function guard (el, fn) {
+    el.addEventListener('click', function (e) {
+      if (busy) { e.preventDefault(); return; }
+      busy = true; setTimeout(function () { busy = false; }, 900);
+      el.classList.add('is-pressed'); setTimeout(function () { el.classList.remove('is-pressed'); }, 220);
+      if (fn) fn(e);
+    });
+  }
+
+  /* ---------- UTM: preserva as existentes, marca a origem se não houver ---------- */
+  var qs = new URLSearchParams(w.location.search);
+  (function () {
+    var a = d.getElementById('siteLink');
+    var out = new URLSearchParams();
+    qs.forEach(function (v, k) { if (/^utm_/i.test(k)) out.set(k, v); });
+    if (!out.has('utm_source')) { out.set('utm_source', 'instagram'); out.set('utm_medium', 'bio'); out.set('utm_campaign', 'hub-links'); }
+    a.href = '../?' + out.toString();
+  })();
+
+  /* ---------- CTA PRINCIPAL: número de atendimento geral ---------- */
+  (function () {
+    var a = d.getElementById('waMain');
+    a.setAttribute('data-wa', CONFIG.geral);
+    a.href = 'https://wa.me/' + CONFIG.geral + '?text=' + encodeURIComponent(CONFIG.msg);
+  })();
+
+  /* ---------- WHATSAPP: deep link no celular, wa.me como fallback, copiar número se falhar ---------- */
+  function fmtTel (n) { return '+' + n.slice(0, 2) + ' (' + n.slice(2, 4) + ') ' + n.slice(4, 9) + '-' + n.slice(9); }
+  function openWhats (num, text, el) {
+    var msg = encodeURIComponent(text || CONFIG.msg);
+    var web = 'https://wa.me/' + num + '?text=' + msg;
+    if (!isMobile) { w.open(web, '_blank', 'noopener'); return; }
+    var tFallback = null, tToast = null;
+    // app abriu (página escondida) → cancela os fallbacks e limpa os listeners
+    function cancel () {
+      clearTimeout(tFallback); clearTimeout(tToast);
+      d.removeEventListener('visibilitychange', onHide);
+      w.removeEventListener('pagehide', cancel);
+    }
+    function onHide () { if (d.visibilityState === 'hidden') cancel(); }
+    d.addEventListener('visibilitychange', onHide);
+    w.addEventListener('pagehide', cancel);
+    // 1) esquema nativo (abre o app direto quando permitido)
+    try { w.location.href = 'whatsapp://send?phone=' + num + '&text=' + msg; } catch (e) {}
+    // 2) fallback universal (só se a página continuar visível)
+    tFallback = setTimeout(function () { if (d.visibilityState === 'visible') w.location.href = web; }, 1200);
+    // 3) ainda aqui? oferece copiar o número
+    tToast = setTimeout(function () {
+      cancel();
+      if (d.visibilityState === 'visible') {
+        showToast('Não abriu o WhatsApp?', 'Copiar número', function () {
+          copyText(fmtTel(num)).then(function () { showToast('Número copiado: ' + fmtTel(num)); }, function () { showToast(fmtTel(num), null, null, 6000); });
+        });
+      }
+    }, 3600);
+  }
+  d.querySelectorAll('[data-wa]').forEach(function (a) {
+    guard(a, function (e) {
+      var num = a.getAttribute('data-wa'); if (!num) return;
+      e.preventDefault();
+      track(a.id === 'waMain' ? 'whatsapp_main' : 'whatsapp_vendedor');
+      var text = decodeURIComponent((a.href.split('text=')[1] || '').replace(/\+/g, ' ')) || CONFIG.msg;
+      openWhats(num, text, a);
+    });
+  });
+
+  /* ---------- LINKS SIMPLES: feedback + tracking ---------- */
+  ['siteLink'].forEach(function (id) { var el = d.getElementById(id); guard(el, function () { track(el.getAttribute('data-track')); }); });
+  d.querySelectorAll('a[data-track="instagram"], a[data-track="maps"]').forEach(function (el) { guard(el, function () { track(el.getAttribute('data-track')); }); });
+
+  /* ---------- SHEETS (vendedores + localização) ---------- */
+  var veil = d.getElementById('veil'), hub = d.getElementById('hub');
+  var current = null, lastFocus = null, scrollY = 0, histPushed = false;
+  var FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function lock () {
+    scrollY = w.scrollY || w.pageYOffset || 0;
+    d.body.style.top = (-scrollY) + 'px';
+    d.body.classList.add('is-locked');
+  }
+  function unlock () {
+    d.body.classList.remove('is-locked');
+    d.body.style.top = '';
+    w.scrollTo(0, scrollY);
+  }
+  function openSheet (id, opener) {
+    var sheet = d.getElementById(id); if (!sheet || current === sheet) return;
+    if (current) closeSheet(true);
+    current = sheet;
+    lastFocus = opener || d.activeElement;
+    if (opener) opener.setAttribute('aria-expanded', 'true');
+    lock();
+    hub.inert = true;
+    veil.classList.add('is-open');
+    sheet.classList.add('is-open');
+    if (!histPushed) { try { history.pushState({ sheet: id }, ''); histPushed = true; } catch (e) {} }
+    setTimeout(function () { var c = sheet.querySelector('[data-close]'); if (c) c.focus({ preventScroll: true }); }, 60);
+  }
+  function closeSheet (keepHistory) {
+    if (!current) return;
+    var sheet = current; current = null;
+    sheet.classList.remove('is-open');
+    sheet.style.transform = '';
+    veil.classList.remove('is-open');
+    hub.inert = false;
+    unlock();
+    d.querySelectorAll('[aria-controls="' + sheet.id + '"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    if (histPushed && !keepHistory) { histPushed = false; try { history.back(); } catch (e) {} }
+  }
+  // botão voltar (Android / navegador interno): fecha o sheet em vez de sair da página
+  w.addEventListener('popstate', function () { if (current) { histPushed = false; closeSheet(true); } });
+
+  d.getElementById('openVend').addEventListener('click', function () { track('vendedores'); openSheet('sheetVend', this); });
+  d.getElementById('openLoc').addEventListener('click', function () { track('localizacao'); openSheet('sheetLoc', this); });
+  d.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { closeSheet(); }); });
+  veil.addEventListener('click', function () { closeSheet(); });
+
+  d.addEventListener('keydown', function (e) {
+    if (!current) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeSheet(); return; }
+    if (e.key === 'Tab') {
+      var els = current.querySelectorAll(FOCUSABLE); if (!els.length) return;
+      var first = els[0], last = els[els.length - 1];
+      if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // arrastar para baixo fecha (só pelo topo: handle + cabeçalho)
+  d.querySelectorAll('.sheet').forEach(function (sheet) {
+    var y0 = null, dy = 0;
+    sheet.addEventListener('pointerdown', function (e) {
+      if (!e.target.closest('.sheet__handle, .sheet__head') || e.target.closest('button')) return;
+      y0 = e.clientY; dy = 0; sheet.classList.add('is-dragging');
+    });
+    sheet.addEventListener('pointermove', function (e) {
+      if (y0 === null) return;
+      dy = Math.max(0, e.clientY - y0);
+      sheet.style.transform = 'translate(-50%, ' + dy + 'px)';
+    });
+    function up () {
+      if (y0 === null) return;
+      sheet.classList.remove('is-dragging'); y0 = null;
+      if (dy > 90) closeSheet(); else sheet.style.transform = '';
+    }
+    sheet.addEventListener('pointerup', up);
+    sheet.addEventListener('pointercancel', up);
+  });
+
+
+  /* ---------- ?vendedor=nome → abre o sheet com o vendedor em destaque ---------- */
+  (function () {
+    var v = (qs.get('vendedor') || qs.get('v') || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    if (!v) return;
+    var el = d.querySelector('.vend[data-vend="' + v + '"]'); if (!el) return;
+    el.classList.add('is-hi');
+    var li = el.parentNode; li.parentNode.insertBefore(li, li.parentNode.firstChild);
+    setTimeout(function () { openSheet('sheetVend', d.getElementById('openVend')); }, reduce ? 0 : 380);
+  })();
+
+  /* ---------- LOCALIZAÇÃO: copiar endereço ---------- */
+  d.getElementById('copyAddr').addEventListener('click', function () {
+    copyText(CONFIG.endereco).then(function () { showToast('Endereço copiado'); }, function () { showToast('Não foi possível copiar', null, null, 2500); });
+  });
+  // Maps: no iOS o link universal do Google Maps abre o app se instalado; senão, o navegador.
+  d.getElementById('mapsLink').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.endereco);
+
+  /* ---------- SALVAR CONTATO (.vcf só com dados reais) ---------- */
+  function vcf () {
+    var lines = ['BEGIN:VCARD', 'VERSION:3.0', 'N:;' + CONFIG.nome + ';;;', 'FN:' + CONFIG.nome, 'ORG:' + CONFIG.nome];
+    lines.push('TEL;TYPE=CELL,VOICE:' + fmtTel(CONFIG.geral));
+    if (CONFIG.endereco) lines.push('ADR;TYPE=WORK:;;CEASA de Goiânia - Galpão 4\\, Box 5\\, A6A;Goiânia;GO;;Brasil');
+    if (CONFIG.site) lines.push('URL:' + CONFIG.site);
+    if (CONFIG.instagram) lines.push('X-SOCIALPROFILE;TYPE=instagram:' + CONFIG.instagram);
+    if (CONFIG.horario) lines.push('NOTE:' + CONFIG.horario + '. Qualidade de quem produz\\, confiança de quem entrega.');
+    lines.push('END:VCARD');
+    return lines.join('\r\n');
+  }
+  d.getElementById('saveContact').addEventListener('click', function () {
+    track('salvar_contato');
+    var data = vcf();
+    try {
+      var blob = new Blob([data], { type: 'text/vcard;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = d.createElement('a'); a.href = url; a.download = 'frutas-beca.vcf'; a.rel = 'noopener';
+      d.body.appendChild(a); a.click(); d.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      showToast(inApp ? 'Se não baixar aqui, abra no Safari/Chrome' : 'Contato pronto para salvar', null, null, inApp ? 3500 : 2200);
+    } catch (e) {
+      showToast('Não foi possível gerar o contato', null, null, 2500);
+    }
+  });
+
+  /* ---------- COMPARTILHAR (Web Share → copiar link) ---------- */
+  d.getElementById('shareHub').addEventListener('click', function () {
+    track('compartilhar');
+    var data = { title: CONFIG.nome, text: 'Frutas Beca — qualidade de quem produz, confiança de quem entrega.', url: CONFIG.hub };
+    if (navigator.share && (!navigator.canShare || navigator.canShare(data))) {
+      navigator.share(data).catch(function () {});
+    } else {
+      copyText(CONFIG.hub).then(function () { showToast('Link copiado'); }, function () { showToast(CONFIG.hub, null, null, 5000); });
+    }
+  });
+
+  /* ---------- VÍDEO DE FUNDO: depois do load, nunca bloqueia, variante por conexão ---------- */
+  (function () {
+    var v = d.querySelector('.bg video'); if (!v) return;
+    var c = navigator.connection || {};
+    var et = c.effectiveType || '4g';
+    if (reduce || c.saveData || /(^|[^0-9])2g/.test(et)) { v.parentNode.removeChild(v); return; }
+    var sd = /3g/.test(et) || (w.innerWidth <= 400 && (w.devicePixelRatio || 1) < 2);
+    var src = v.getAttribute(sd ? 'data-src-sd' : 'data-src-hd');
+    function start () {
+      var s = d.createElement('source'); s.src = src; s.type = 'video/mp4'; v.appendChild(s);
+      v.load();
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+      v.addEventListener('playing', function () { v.classList.add('is-playing'); }, { once: true });
+      v.addEventListener('error', function () { if (v.parentNode) v.parentNode.removeChild(v); }, { once: true });
+      // sem progresso em 8s (conexão ruim): fica só o poster
+      setTimeout(function () { if (!v.classList.contains('is-playing') && v.parentNode) { v.pause(); v.parentNode.removeChild(v); } }, 8000);
+    }
+    if (d.readyState === 'complete') setTimeout(start, 120); else w.addEventListener('load', function () { setTimeout(start, 120); });
+    function resume () { if (v.paused && v.parentNode && v.classList.contains('is-playing')) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+    w.addEventListener('pointerdown', resume, { once: true, passive: true });
+    d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'visible') resume(); });
+  })();
+})();
+</script>
+</body>
+</html>
