@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -32,10 +32,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/site-v2.css">
+<link rel="stylesheet" href="css/beca.css">
 
 <script type="application/ld+json">
 {
@@ -70,423 +69,490 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="wrap nav__in">
-    <a href="#topo" aria-label="Início"><img class="nav__logo" src="assets/logo.svg" alt="Frutas Beca"></a>
-    <div class="nav__links">
-      <a href="#sobre">A Beca</a>
-      <a href="#frutas">Frutas</a>
-      <a href="#processo">Como comprar</a>
-      <a href="#vendedores">Vendedores</a>
-      <a href="#depoimentos">Depoimentos</a>
-    </div>
-    <div class="nav__actions">
-      <a class="btn btn--wa btn--sm" href="#vendedores">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
-        <span class="nav__cta-text">Fale conosco</span>
-      </a>
-      <button class="nav__burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="shell nav__in">
+    <a class="nav__brand" href="#topo" aria-label="Frutas Beca — início">
+      <img class="nav__logo" src="assets/logo.svg" alt="Frutas Beca" width="1109" height="301">
+    </a>
+
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#topo" class="is-active" data-nav="topo">Início</a>
+      <a href="#sobre" data-nav="sobre">A Beca</a>
+      <a href="#frutas" data-nav="frutas">Nossas frutas</a>
+      <a href="#processo" data-nav="processo">Como comprar</a>
+      <a href="#vendedores" data-nav="vendedores">Vendedores</a>
+      <a href="#depoimentos" data-nav="depoimentos">Depoimentos</a>
+    </nav>
+
+    <a class="btn btn--orange btn--sm nav__cta" href="#vendedores">
+      Fale com a Beca
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+    </a>
+
+    <button type="button" class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <div class="nav__mobile" id="navMobile" aria-hidden="true">
+
+  <div class="nav__drawer" id="drawer">
     <a href="#sobre">A Beca</a>
-    <a href="#frutas">Frutas</a>
+    <a href="#frutas">Nossas frutas</a>
     <a href="#processo">Como comprar</a>
     <a href="#vendedores">Vendedores</a>
     <a href="#depoimentos">Depoimentos</a>
+    <a class="btn btn--orange btn--full" href="#vendedores">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+      Falar no WhatsApp
+    </a>
   </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="topo">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto"
-         data-src-desktop="videos/hero-desktop.mp4" data-src-mobile="videos/hero-mobile.mp4"></video>
-  <div class="hero__overlay"></div>
-  <div class="wrap hero__in">
-    <span class="badge" data-hero>Fornecedor de frutas · desde 1982</span>
-    <h1 data-hero>Do campo ao <em>seu negócio</em>.</h1>
-    <p class="sub" data-hero>A solidez da tradição com a inteligência do fornecimento moderno. Abastecimento que não falha, qualidade que não oscila.</p>
-    <div class="hero__cta" data-hero>
-      <a class="btn btn--wa" href="#vendedores">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
-        Quero abastecer com a Beca
-      </a>
-      <a class="btn btn--ghost" href="#frutas" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.4)">Ver as frutas</a>
-    </div>
-  </div>
-  <div class="hero__scroll">Role para conhecer</div>
 </header>
 
-<!-- PARCEIROS (marquee) -->
-<section class="partners" id="parceiros">
-  <div class="wrap">
-    <p class="partners__label">Redes que confiam no abastecimento da Beca</p>
+<main id="topo">
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Apresentação">
+  <div class="hero__media">
+    <video autoplay muted loop playsinline preload="metadata"
+           data-src-desktop="videos/hero-desktop.mp4"
+           data-src-mobile="videos/hero-mobile.mp4"
+           aria-hidden="true"></video>
   </div>
-  <div class="marquee" id="partnersMarquee">
+  <div class="hero__veil"></div>
+
+  <div class="shell hero__in">
+    <span class="hero__eyebrow" data-reveal>Fornecedor de frutas desde 1982</span>
+    <h1 data-reveal>Do campo <span class="hl">ao seu negócio.</span></h1>
+    <p class="hero__sub" data-reveal>A solidez da tradição com a inteligência do fornecimento moderno. Abastecimento que não falha, qualidade que não oscila.</p>
+    <div class="hero__cta" data-reveal>
+      <a class="btn btn--orange" href="#vendedores">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+        Quero abastecer com a Beca
+      </a>
+      <a class="btn btn--outline-light" href="#frutas">Ver as frutas</a>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">Role para conhecer</div>
+</section>
+
+<!-- ============================================================
+     2. GRANDES REDES
+     ============================================================ -->
+<section class="partners" id="parceiros" aria-label="Redes parceiras">
+  <div class="shell">
+    <p class="partners__label">Grandes redes que confiam no nosso trabalho</p>
+  </div>
+  <div class="marquee">
     <div class="marquee__track">
-      <img src="parceiros/nilo.svg" alt="Nilo Supermercado">
-      <img src="parceiros/store.svg" alt="Store Rede de Supermercados">
-      <img src="parceiros/max.svg" alt="Max Supermercados">
-      <img src="parceiros/tatico.svg" alt="Tatico">
-      <img src="parceiros/campelo.svg" alt="Campelo">
-      <img src="parceiros/nilo.svg" alt="" aria-hidden="true">
-      <img src="parceiros/store.svg" alt="" aria-hidden="true">
-      <img src="parceiros/max.svg" alt="" aria-hidden="true">
-      <img src="parceiros/tatico.svg" alt="" aria-hidden="true">
-      <img src="parceiros/campelo.svg" alt="" aria-hidden="true">
+      <img src="parceiros/nilo.svg" alt="Nilo Supermercado" loading="lazy">
+      <img src="parceiros/store.svg" alt="Store Rede de Supermercados" loading="lazy">
+      <img src="parceiros/max.svg" alt="Max Supermercados" loading="lazy">
+      <img src="parceiros/tatico.svg" alt="Tatico" loading="lazy">
+      <img src="parceiros/campelo.svg" alt="Campelo" loading="lazy">
+      <img src="parceiros/nilo.svg" alt="" aria-hidden="true" loading="lazy">
+      <img src="parceiros/store.svg" alt="" aria-hidden="true" loading="lazy">
+      <img src="parceiros/max.svg" alt="" aria-hidden="true" loading="lazy">
+      <img src="parceiros/tatico.svg" alt="" aria-hidden="true" loading="lazy">
+      <img src="parceiros/campelo.svg" alt="" aria-hidden="true" loading="lazy">
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="band stats-band">
-  <div class="wrap">
+<!-- ============================================================
+     3. NÚMEROS / AUTORIDADE
+     ============================================================ -->
+<section class="authority" aria-label="Nossos números">
+  <div class="shell">
     <div class="stats">
-      <div class="stat"><div class="n" data-count="40" data-suffix="+">40+</div><div class="l">anos de estrada</div></div>
-      <div class="stat"><div class="n" data-count="3" data-suffix="ª">3ª</div><div class="l">geração à frente</div></div>
-      <div class="stat"><div class="n" data-count="1982">1982</div><div class="l">a primeira bandeira</div></div>
+      <div class="stat" data-reveal>
+        <svg class="stat__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h2M5 17a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM11 17h4M15 17a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0zM5 14V9h5l2 5M10 9V5h3l2 4h4v5"/></svg>
+        <div class="stat__n" data-count="40" data-suffix="+">40+</div>
+        <div class="stat__l">anos de estrada</div>
+        <div class="stat__s">Desde 1982 abastecendo o varejo.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <svg class="stat__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+        <div class="stat__n" data-count="3" data-suffix="ª">3ª</div>
+        <div class="stat__l">geração à frente</div>
+        <div class="stat__s">A família Cadamuro no comando.</div>
+      </div>
+      <div class="stat" data-reveal>
+        <svg class="stat__ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M8 15h.01M12 15h.01M16 15h.01"/></svg>
+        <div class="stat__n" data-count="1982">1982</div>
+        <div class="stat__l">desde</div>
+        <div class="stat__s">A primeira bandeira no hortifruti.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SOBRE + TIMELINE + VALORES -->
-<section class="band" id="sobre">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow g-rise">A Beca</span>
-      <h2 class="h2 g-rise">Mais de 40 anos vendendo confiança</h2>
-      <p class="lead g-rise">Tudo começou com um par de mãos calejadas e uma palavra que valia mais que qualquer contrato. Conheça a história da família Cadamuro.</p>
-    </div>
+<!-- ============================================================
+     4. HISTÓRIA + TIMELINE
+     ============================================================ -->
+<section class="sec sec--light" id="sobre">
+  <div class="shell">
+    <div class="story">
+      <div class="story__head">
+        <span class="eyebrow" data-reveal>Nossa história</span>
+        <h2 class="h2" data-reveal>Mais de 40 anos vendendo <span class="nw">confiança.<svg class="leaf-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3C11 3 4 9 3 20c0 .6.4 1 1 1 11-1 17-8 17-18zM4 20c3-6 7-10 13-14"/></svg></span></h2>
+        <p class="lead" data-reveal>Tudo começou com um par de mãos calejadas e uma palavra que valia mais que qualquer contrato. Hoje, seguimos a mesma missão: entregar frutas de qualidade com respeito, compromisso e verdade.</p>
+        <a class="btn btn--lime" href="#vendedores" data-reveal>Fale com a família Cadamuro</a>
+      </div>
 
-    <div class="tl2">
-      <div class="tl2__track"></div>
-      <div class="tl2__fill" id="tlFill"></div>
-      <div class="tl2__items">
-        <div class="tl2__item on" data-step="0">
-          <div class="tl2__node"></div>
-          <div class="tl2__yr">1982</div>
-          <div class="tl2__card">
-            <h3>A primeira bandeira</h3>
-            <p>Gumercindo Cadamuro e seus filhos fincam a família no setor de hortifruti. A regra valia mais que contrato: trabalho duro, honestidade total e nunca deixar um parceiro na mão.</p>
+      <div class="tl" id="timeline">
+        <div class="tl__items">
+          <div class="tl__item is-on" data-reveal>
+            <div class="tl__node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V12M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 12c0-4-3-7-7-7 0 4 3 7 7 7zM4 22h16"/></svg>
+            </div>
+            <div class="tl__yr">1982</div>
+            <div class="tl__body">
+              <h3>A primeira bandeira</h3>
+              <p>Gumercindo Cadamuro e seus filhos fincam a família no setor de hortifruti. A regra valia mais que contrato: trabalho duro, honestidade total e nunca deixar um parceiro na mão.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl2__item" data-step="1">
-          <div class="tl2__node"></div>
-          <div class="tl2__yr">1998</div>
-          <div class="tl2__card">
-            <h3>A tradição encontra a tecnologia</h3>
-            <p>A segunda geração assume o legado e evolui a operação: novos processos, mais polos de origem e a busca incessante pela qualidade superior. De box no CEASA a um centro de inteligência em abastecimento.</p>
+          <div class="tl__item" data-reveal>
+            <div class="tl__node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></svg>
+            </div>
+            <div class="tl__yr">1998</div>
+            <div class="tl__body">
+              <h3>A tradição encontra a tecnologia</h3>
+              <p>A segunda geração assume o legado e evolui a operação: novos processos, mais polos de origem e a busca incessante pela qualidade superior. De box no CEASA a um centro de inteligência em abastecimento.</p>
+            </div>
           </div>
-        </div>
-        <div class="tl2__item" data-step="2">
-          <div class="tl2__node"></div>
-          <div class="tl2__yr">Hoje</div>
-          <div class="tl2__card">
-            <h3>A 3ª geração no comando</h3>
-            <p>O mesmo vigor de 40 anos atrás, agora com visão de futuro: padrão selecionado, origem rastreável e uma operação que domina a cadeia de suprimentos do campo direto ao seu negócio.</p>
+          <div class="tl__item" data-reveal>
+            <div class="tl__node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l1.5-5h15L21 10M3 10h18v11H3zM3 10a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M9 21v-6h6v6"/></svg>
+            </div>
+            <div class="tl__yr">Hoje</div>
+            <div class="tl__body">
+              <h3>A 3ª geração no comando</h3>
+              <p>O mesmo vigor de 40 anos atrás, agora com visão de futuro: padrão selecionado, origem rastreável e uma operação que domina a cadeia do campo direto ao seu negócio.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="values-row g-rise">
-      <div class="value-chip">
-        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    <div class="values">
+      <div class="value" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
         Palavra dada
       </div>
-      <div class="value-chip">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.6h7.6z"/></svg>
-        Padrão selecionado
+      <div class="value" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21l2.3-7.4-6-4.6h7.6z"/></svg>
+        Padrão de qualidade
       </div>
-      <div class="value-chip">
-        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        Abastecimento contínuo
+      <div class="value" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7zM5.5 18.5a2 2 0 1 0 0 .01M18.5 18.5a2 2 0 1 0 0 .01"/></svg>
+        Abastecimento confiável
       </div>
-      <div class="value-chip">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="value" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Origem rastreável
       </div>
     </div>
   </div>
 </section>
 
-<!-- FRUTAS -->
-<section class="band" id="frutas" style="background:var(--surface-2)">
-  <div class="wrap">
-    <div class="frutas-head">
+<!-- ============================================================
+     5. FRUTAS — A ASSINATURA DA CASA
+     ============================================================ -->
+<section class="sec sec--dark" id="frutas">
+  <div class="shell">
+    <div class="fruits__head">
       <div>
-        <span class="eyebrow g-rise">Nossas frutas</span>
-        <h2 class="h2 g-rise">A assinatura da casa</h2>
+        <span class="eyebrow" data-reveal>Nossas frutas</span>
+        <h2 class="h2" data-reveal>A assinatura da <span class="nw">casa.<svg class="leaf-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3C11 3 4 9 3 20c0 .6.4 1 1 1 11-1 17-8 17-18zM4 20c3-6 7-10 13-14"/></svg></span></h2>
+        <p class="lead" data-reveal>Não é apenas mais uma fruta no CEASA. Toda fruta Beca passou pelo critério, seleção e garantia da família.</p>
       </div>
-      <p class="lead g-rise" style="max-width:38ch">Não é apenas mais uma fruta no Ceasa. Toda fruta Beca passou pelo critério, seleção e garantia da família.</p>
+      <a class="btn btn--outline-lime" href="#vendedores" data-reveal>Pedir cotação</a>
     </div>
-    <div class="frutas-grid">
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/laranja-creme.jpg" alt="Laranja Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/laranja-verde.jpg" alt="" aria-hidden="true">
+
+    <div class="fruits" id="fruitsRail" data-reveal>
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/laranja-verde.jpg" alt="Laranja Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Laranja <span>Beca</span></h3>
+          <p>Sabor, suculência e padrão que o cliente reconhece.</p>
         </div>
-        <div class="fruta__b"><h3>Laranja <span>Beca</span></h3></div>
       </article>
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/manga-creme.jpg" alt="Manga Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/manga-verde.jpg" alt="" aria-hidden="true">
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/manga-verde.jpg" alt="Manga Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Manga <span>Beca</span></h3>
+          <p>Doçura e coloração que valorizam a sua gôndola.</p>
         </div>
-        <div class="fruta__b"><h3>Manga <span>Beca</span></h3></div>
       </article>
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/abacate-creme.jpg" alt="Abacate Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/abacate-verde.jpg" alt="" aria-hidden="true">
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/abacate-verde.jpg" alt="Abacate Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Abacate <span>Beca</span></h3>
+          <p>Cremosidade e ponto certo para todos os momentos.</p>
         </div>
-        <div class="fruta__b"><h3>Abacate <span>Beca</span></h3></div>
       </article>
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/limao-creme.jpg" alt="Limão Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/limao-verde.jpg" alt="" aria-hidden="true">
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/limao-verde.jpg" alt="Limão Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Limão <span>Beca</span></h3>
+          <p>Aroma intenso e rendimento que fazem a diferença.</p>
         </div>
-        <div class="fruta__b"><h3>Limão <span>Beca</span></h3></div>
       </article>
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/mexerica-creme.jpg" alt="Mexerica Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/mexerica-verde.jpg" alt="" aria-hidden="true">
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/mexerica-verde.jpg" alt="Mexerica Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Mexerica <span>Beca</span></h3>
+          <p>Fácil de descascar, sempre fresca, sempre doce.</p>
         </div>
-        <div class="fruta__b"><h3>Mexerica <span>Beca</span></h3></div>
       </article>
-      <article class="fruta g-rise">
-        <div class="fruta__video">
-          <img class="fruta__img fruta__img--creme" src="frutas/maracuja-creme.jpg" alt="Maracujá Beca">
-          <img class="fruta__img fruta__img--verde" src="frutas/maracuja-verde.jpg" alt="" aria-hidden="true">
+      <article class="fruit">
+        <img class="fruit__img" src="frutas/maracuja-verde.jpg" alt="Maracujá Beca" width="800" height="1068" loading="lazy" decoding="async">
+        <div class="fruit__b">
+          <h3>Maracujá <span>Beca</span></h3>
+          <p>Polpa saborosa para o consumidor exigente.</p>
         </div>
-        <div class="fruta__b"><h3>Maracujá <span>Beca</span></h3></div>
       </article>
+    </div>
+    <div class="rail-dots" data-dots-for="fruitsRail" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. COMO FUNCIONA
+     ============================================================ -->
+<section class="sec sec--light" id="processo">
+  <div class="shell">
+    <div class="process">
+      <div class="process__head">
+        <span class="eyebrow" data-reveal>Como comprar</span>
+        <h2 class="h2" data-reveal>Do primeiro contato à sua <span class="nw">gôndola.<svg class="leaf-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3C11 3 4 9 3 20c0 .6.4 1 1 1 11-1 17-8 17-18zM4 20c3-6 7-10 13-14"/></svg></span></h2>
+        <p class="lead" data-reveal>Um processo direto, sem burocracia. Você fala com a gente no WhatsApp e a Beca cuida do resto.</p>
+      </div>
+
+      <div class="process__media" data-reveal>
+        <img src="frutas/laranja-verde.jpg" alt="Laranjas selecionadas da Frutas Beca" width="800" height="1068" loading="lazy" decoding="async">
+      </div>
+
+      <div class="process__col">
+        <div class="steps">
+          <div class="step" data-reveal>
+            <div class="step__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1-4.1A8.4 8.4 0 0 1 3 11.5 8.5 8.5 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"/></svg></div>
+            <div>
+              <h3><i>1.</i>Fale no WhatsApp</h3>
+              <p>Chame um dos nossos vendedores e conte o que o seu negócio precisa abastecer.</p>
+            </div>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div>
+              <h3><i>2.</i>Receba a cotação</h3>
+              <p>Enviamos preço, padrão e disponibilidade das frutas direto dos polos de safra.</p>
+            </div>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8"/></svg></div>
+            <div>
+              <h3><i>3.</i>Feche o pedido</h3>
+              <p>Confirmou? Programamos o volume e a frequência ideais para o seu giro.</p>
+            </div>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg></div>
+            <div>
+              <h3><i>4.</i>Retire no CEASA</h3>
+              <p>Seu pedido fica separado no padrão combinado, pronto para retirada no nosso box do CEASA de Goiânia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- COMO COMPRAR -->
-<section class="band processo-band" id="processo">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow g-rise">Como comprar</span>
-      <h2 class="h2 g-rise">Do primeiro contato à sua gôndola</h2>
-      <p class="lead g-rise">Um processo direto, sem burocracia. Você fala com a gente no WhatsApp e a Beca cuida do resto.</p>
-    </div>
-    <div class="steps">
-      <div class="step g-rise">
-        <div class="step__n">1</div>
-        <svg class="step__ic" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1-4.1A8.4 8.4 0 0 1 3 11.5 8.5 8.5 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"/></svg>
-        <h3>Fale no WhatsApp</h3>
-        <p>Chame um dos nossos vendedores e conte o que o seu negócio precisa abastecer.</p>
+<!-- ============================================================
+     7. QUEM FAZ A BECA — VENDEDORES
+     ============================================================ -->
+<section class="sec sec--dark" id="vendedores">
+  <div class="shell">
+    <div class="team">
+      <div class="team__head">
+        <span class="eyebrow" data-reveal>Quem faz a Beca</span>
+        <h2 class="h2" data-reveal>Pessoas que fazem acontecer todos os <span class="nw">dias.<svg class="leaf-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3C11 3 4 9 3 20c0 .6.4 1 1 1 11-1 17-8 17-18zM4 20c3-6 7-10 13-14"/></svg></span></h2>
+        <p class="lead" data-reveal>Gente de verdade, que conhece o seu negócio pelo nome. Escolha um vendedor e chame no WhatsApp — o pedido já abre com a mensagem pronta.</p>
       </div>
-      <div class="step g-rise">
-        <div class="step__n">2</div>
-        <svg class="step__ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        <h3>Receba a cotação</h3>
-        <p>Enviamos preço, padrão e disponibilidade das frutas direto dos polos de safra.</p>
-      </div>
-      <div class="step g-rise">
-        <div class="step__n">3</div>
-        <svg class="step__ic" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
-        <h3>Feche o pedido</h3>
-        <p>Confirmou? Programamos o volume e a frequência ideais para o seu giro.</p>
-      </div>
-      <div class="step g-rise">
-        <div class="step__n">4</div>
-        <svg class="step__ic" viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg>
-        <h3>Retire no CEASA</h3>
-        <p>Seu pedido fica separado no padrão combinado, pronto para retirada no nosso box do CEASA.</p>
+
+      <div class="vends">
+        <a class="vend" data-reveal href="https://wa.me/5562999212594?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">
+          <div class="vend__av" aria-hidden="true">MA</div>
+          <div class="vend__b">
+            <h3>Márcia</h3>
+            <p>Atendimento e pedidos</p>
+            <span class="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>(62) 99921-2594</span>
+          </div>
+          <div class="vend__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </a>
+        <a class="vend" data-reveal href="https://wa.me/5562981489182?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">
+          <div class="vend__av o" aria-hidden="true">AD</div>
+          <div class="vend__b">
+            <h3>Adirlei</h3>
+            <p>Atendimento e pedidos</p>
+            <span class="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>(62) 98148-9182</span>
+          </div>
+          <div class="vend__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </a>
+        <a class="vend" data-reveal href="https://wa.me/5562999271316?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">
+          <div class="vend__av l" aria-hidden="true">SA</div>
+          <div class="vend__b">
+            <h3>Sávio</h3>
+            <p>Atendimento e pedidos</p>
+            <span class="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>(62) 99927-1316</span>
+          </div>
+          <div class="vend__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </a>
+        <a class="vend" data-reveal href="https://wa.me/5562991888595?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">
+          <div class="vend__av m" aria-hidden="true">EL</div>
+          <div class="vend__b">
+            <h3>Elias</h3>
+            <p>Atendimento e pedidos</p>
+            <span class="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>(62) 99188-8595</span>
+          </div>
+          <div class="vend__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VENDEDORES -->
-<section class="band" id="vendedores">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow g-rise">Nossa equipe</span>
-      <h2 class="h2 g-rise">Fale direto com um vendedor</h2>
-      <p class="lead g-rise">Gente de verdade, que conhece o seu negócio pelo nome. Escolha um parceiro e chame no WhatsApp — o pedido já abre com a mensagem pronta.</p>
+<!-- ============================================================
+     8. DEPOIMENTOS
+     ============================================================ -->
+<section class="sec sec--light" id="depoimentos">
+  <div class="shell">
+    <span class="eyebrow" data-reveal>Quem confia, indica</span>
+    <h2 class="h2" data-reveal>O que dizem nossos <span class="nw">clientes.<svg class="leaf-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3C11 3 4 9 3 20c0 .6.4 1 1 1 11-1 17-8 17-18zM4 20c3-6 7-10 13-14"/></svg></span></h2>
+
+    <div class="quotes" id="quotesRail" data-reveal>
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote><p>Padrão constante o ano inteiro, sem falta de produto. A Beca virou parte da nossa operação de hortifrúti.</p></blockquote>
+        <figcaption class="quote__who">
+          <div><b>Setor de Compras</b><span>Nilo Supermercado</span></div>
+          <img class="quote__logo" src="parceiros/nilo.svg" alt="" aria-hidden="true" loading="lazy">
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote><p>Cotação rápida e fruta que praticamente vende sozinha na gôndola. Fornecedor de confiança há anos.</p></blockquote>
+        <figcaption class="quote__who">
+          <div><b>Hortifrúti</b><span>Rede Store</span></div>
+          <img class="quote__logo" src="parceiros/store.svg" alt="" aria-hidden="true" loading="lazy">
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote><p>Parceria sem dor de cabeça. Qualidade que não oscila, nem no pico de safra. Isso pesa no nosso giro.</p></blockquote>
+        <figcaption class="quote__who">
+          <div><b>Compras</b><span>MAX Supermercados</span></div>
+          <img class="quote__logo" src="parceiros/max.svg" alt="" aria-hidden="true" loading="lazy">
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote><p>Palavra dada é palavra honrada. A gente combina o padrão e é exatamente o que chega na retirada.</p></blockquote>
+        <figcaption class="quote__who">
+          <div><b>Setor de Compras</b><span>Tatico</span></div>
+          <img class="quote__logo" src="parceiros/tatico.svg" alt="" aria-hidden="true" loading="lazy">
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+        <blockquote><p>Atendimento olho no olho. Falo direto com o vendedor no WhatsApp e resolvo o pedido na hora.</p></blockquote>
+        <figcaption class="quote__who">
+          <div><b>Hortifrúti</b><span>Campelo</span></div>
+          <img class="quote__logo" src="parceiros/campelo.svg" alt="" aria-hidden="true" loading="lazy">
+        </figcaption>
+      </figure>
     </div>
-    <div class="vend-grid">
-      <a class="vend g-rise" href="https://wa.me/5562999212594?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
-        <div class="vend__av">MA</div>
-        <div class="vend__b">
-          <h3>Márcia</h3>
-          <p>Atendimento e pedidos</p>
-          <span class="vend__wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-            (62) 99921-2594
-          </span>
-        </div>
-        <div class="vend__arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-      <a class="vend g-rise" href="https://wa.me/5562981489182?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
-        <div class="vend__av alt">AD</div>
-        <div class="vend__b">
-          <h3>Adirlei</h3>
-          <p>Atendimento e pedidos</p>
-          <span class="vend__wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-            (62) 98148-9182
-          </span>
-        </div>
-        <div class="vend__arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-      <a class="vend g-rise" href="https://wa.me/5562999271316?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
-        <div class="vend__av alt2">SA</div>
-        <div class="vend__b">
-          <h3>Sávio</h3>
-          <p>Atendimento e pedidos</p>
-          <span class="vend__wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-            (62) 99927-1316
-          </span>
-        </div>
-        <div class="vend__arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-      <a class="vend g-rise" href="https://wa.me/5562991888595?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Frutas%20Beca%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
-        <div class="vend__av alt3">EL</div>
-        <div class="vend__b">
-          <h3>Elias</h3>
-          <p>Atendimento e pedidos</p>
-          <span class="vend__wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-            (62) 99188-8595
-          </span>
-        </div>
-        <div class="vend__arrow">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </div>
-      </a>
-    </div>
+    <div class="rail-dots" data-dots-for="quotesRail" aria-hidden="true"></div>
   </div>
 </section>
 
-<!-- DEPOIMENTOS (marquee pausável) -->
-<section class="band" id="depoimentos" style="background:var(--surface-2)">
-  <div class="wrap">
-    <div class="center">
-      <span class="eyebrow g-rise">Depoimentos</span>
-      <h2 class="h2 g-rise">Parceiros que crescem com a gente</h2>
-    </div>
+<!-- ============================================================
+     9. CTA FINAL
+     ============================================================ -->
+<section class="final" aria-label="Fale com a Beca">
+  <div class="final__media">
+    <img src="frutas/abacate-verde.jpg" alt="" aria-hidden="true" width="800" height="1068" loading="lazy" decoding="async">
   </div>
-  <div class="depo-marquee" id="depoMarquee">
-    <div class="depo-track">
-      <div class="depo-card">
-        <div class="quote">"</div>
-        <p>Padrão constante o ano inteiro, sem falta de produto. A Beca virou parte da nossa operação de hortifrúti.</p>
-        <div class="who"><div class="av">NI</div><div><b>Setor de Compras</b><span>Nilo Supermercado</span></div></div>
-      </div>
-      <div class="depo-card">
-        <div class="quote">"</div>
-        <p>Cotação rápida e fruta que praticamente vende sozinha na gôndola. Fornecedor de confiança há anos.</p>
-        <div class="who"><div class="av">ST</div><div><b>Hortifrúti</b><span>Rede Store</span></div></div>
-      </div>
-      <div class="depo-card">
-        <div class="quote">"</div>
-        <p>Parceria sem dor de cabeça. Qualidade que não oscila, nem no pico de safra. Isso pesa no nosso giro.</p>
-        <div class="who"><div class="av">MX</div><div><b>Compras</b><span>MAX Supermercados</span></div></div>
-      </div>
-      <div class="depo-card">
-        <div class="quote">"</div>
-        <p>Palavra dada é palavra honrada. A gente combina o padrão e é exatamente o que chega na retirada.</p>
-        <div class="who"><div class="av">TA</div><div><b>Setor de Compras</b><span>Tatico</span></div></div>
-      </div>
-      <div class="depo-card">
-        <div class="quote">"</div>
-        <p>Atendimento olho no olho. Falo direto com o vendedor no WhatsApp e resolvo o pedido na hora.</p>
-        <div class="who"><div class="av">CA</div><div><b>Hortifrúti</b><span>Campelo</span></div></div>
-      </div>
-      <!-- duplicados para loop infinito -->
-      <div class="depo-card" aria-hidden="true">
-        <div class="quote">"</div>
-        <p>Padrão constante o ano inteiro, sem falta de produto. A Beca virou parte da nossa operação de hortifrúti.</p>
-        <div class="who"><div class="av">NI</div><div><b>Setor de Compras</b><span>Nilo Supermercado</span></div></div>
-      </div>
-      <div class="depo-card" aria-hidden="true">
-        <div class="quote">"</div>
-        <p>Cotação rápida e fruta que praticamente vende sozinha na gôndola. Fornecedor de confiança há anos.</p>
-        <div class="who"><div class="av">ST</div><div><b>Hortifrúti</b><span>Rede Store</span></div></div>
-      </div>
-      <div class="depo-card" aria-hidden="true">
-        <div class="quote">"</div>
-        <p>Parceria sem dor de cabeça. Qualidade que não oscila, nem no pico de safra. Isso pesa no nosso giro.</p>
-        <div class="who"><div class="av">MX</div><div><b>Compras</b><span>MAX Supermercados</span></div></div>
-      </div>
-      <div class="depo-card" aria-hidden="true">
-        <div class="quote">"</div>
-        <p>Palavra dada é palavra honrada. A gente combina o padrão e é exatamente o que chega na retirada.</p>
-        <div class="who"><div class="av">TA</div><div><b>Setor de Compras</b><span>Tatico</span></div></div>
-      </div>
-      <div class="depo-card" aria-hidden="true">
-        <div class="quote">"</div>
-        <p>Atendimento olho no olho. Falo direto com o vendedor no WhatsApp e resolvo o pedido na hora.</p>
-        <div class="who"><div class="av">CA</div><div><b>Hortifrúti</b><span>Campelo</span></div></div>
-      </div>
-    </div>
-  </div>
-  <p class="depo-hint">Passe o mouse para pausar</p>
-</section>
-
-<!-- CTA -->
-<section class="band cta-band">
-  <svg class="leaf" viewBox="0 0 940 360"><path d="M114 253C-26 193 -9 123 21 87C-67 288 673 322 940 182C659 341 256 312 114 253Z"/></svg>
-  <div class="wrap cta-in">
-    <span class="eyebrow g-rise">Vamos conversar</span>
-    <h2 class="g-rise">Vamos garantir o <em>seu abastecimento</em>?</h2>
-    <p class="g-rise">Fale com a nossa equipe no WhatsApp e garanta o padrão que a sua gôndola merece, direto do campo.</p>
-    <div class="btn-row g-rise">
-      <a class="btn btn--wa" href="#vendedores">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
-        Escolher um vendedor
-      </a>
-    </div>
+  <div class="final__veil"></div>
+  <div class="shell final__in">
+    <span class="eyebrow" style="color:var(--lima)" data-reveal>Vamos juntos?</span>
+    <h2 data-reveal>Abasteça seu negócio <span class="hl">com quem entende de frutas.</span></h2>
+    <p data-reveal>Qualidade de quem produz, confiança de quem entrega.</p>
+    <a class="btn btn--orange" href="#vendedores" data-reveal>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+      Fale com a Beca no WhatsApp
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer class="footer">
-  <div class="wrap">
+  <div class="shell">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="assets/logo.svg" alt="Frutas Beca">
+        <img class="footer__logo" src="assets/logo.svg" alt="Frutas Beca" width="1109" height="301" loading="lazy">
         <p>Qualidade de quem produz, confiança de quem entrega. Do nosso campo para o seu negócio, desde 1982.</p>
+        <div class="social">
+          <a href="https://instagram.com/frutasbeca" target="_blank" rel="noopener" aria-label="Instagram @frutasbeca">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+          </a>
+          <a href="#vendedores" aria-label="Falar no WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="footer__col">
+
+      <div class="footer__col footer__col--nav">
         <h5>Navegação</h5>
-        <a href="#sobre">A Beca</a>
-        <a href="#frutas">Frutas</a>
-        <a href="#processo">Como comprar</a>
-        <a href="#vendedores">Vendedores</a>
+        <div class="footer__links">
+          <a href="#topo">Início</a>
+          <a href="#sobre">A Beca</a>
+          <a href="#frutas">Nossas frutas</a>
+          <a href="#processo">Como comprar</a>
+          <a href="#vendedores">Vendedores</a>
+          <a href="#depoimentos">Depoimentos</a>
+        </div>
       </div>
-      <div class="footer__col">
-        <h5>Parceiros</h5>
-        <a href="#vendedores">Seja um parceiro</a>
-        <a href="#vendedores">Pedir cotação</a>
-        <a href="#depoimentos">Depoimentos</a>
+
+      <div class="footer__col footer__col--frutas">
+        <h5>Nossas frutas</h5>
+        <a href="#frutas">Laranja</a>
+        <a href="#frutas">Manga</a>
+        <a href="#frutas">Abacate</a>
+        <a href="#frutas">Limão</a>
+        <a href="#frutas">Mexerica</a>
+        <a href="#frutas">Maracujá</a>
       </div>
+
       <div class="footer__col">
-        <h5>Onde estamos</h5>
-        <p>CEASA de Goiânia<br>Galpão 4, Box 5, A6A</p>
+        <h5>Fale conosco</h5>
+        <p>CEASA de Goiânia<br>Galpão 4, Box 5, A6A — Goiânia/GO</p>
         <p>Seg a Sáb · 7h às 18h</p>
         <a href="https://instagram.com/frutasbeca" target="_blank" rel="noopener">@frutasbeca</a>
         <p>PIX · boleto · cartão · dinheiro</p>
       </div>
     </div>
+
     <div class="footer__bottom">
       <span>© Frutas Beca · desde 1982. Todos os direitos reservados.</span>
       <span>CEASA de Goiânia · Seg a Sáb, 7h às 18h</span>
@@ -494,151 +560,11 @@
   </div>
 </footer>
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-  // Hero video: escolhe a fonte por tela (desktop/mobile) + autoplay
-  (function(){
-    var v = document.querySelector('.hero__video');
-    if (!v) return;
-    var isMobile = window.matchMedia('(max-width: 768px)').matches;
-    var src = isMobile ? v.getAttribute('data-src-mobile') : v.getAttribute('data-src-desktop');
-    if (src) {
-      var s = document.createElement('source');
-      s.src = src; s.type = 'video/mp4';
-      v.appendChild(s);
-      v.load();
-    }
-    function tryPlay(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
-    if (v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay);
-    window.addEventListener('pointerdown', tryPlay, { once: true });
-  })();
+<!-- WhatsApp flutuante (só mobile) -->
+<a class="wa-float" href="#vendedores" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.8-.1 1.4z"/></svg>
+</a>
 
-  // Timeline horizontal (scroll-driven fill + nós ativos)
-  (function(){
-    var fill = document.getElementById('tlFill');
-    var items = document.querySelectorAll('.tl2__item');
-    var tl2 = document.querySelector('.tl2');
-    if (!fill || !items.length) return;
-    var n = items.length;
-    function setProgress(p){
-      p = Math.max(0, Math.min(1, p));
-      if (window.innerWidth <= 760) {
-        fill.style.height = (p * 100) + '%';
-        fill.style.width = '3px';
-      } else {
-        fill.style.width = (p * 84) + '%';
-        fill.style.height = '3px';
-      }
-      items.forEach(function(it, i){
-        it.classList.toggle('on', p >= (i / (n - 1)) - 0.02);
-      });
-    }
-    setProgress(0);
-    if (window.gsap && window.ScrollTrigger && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      ScrollTrigger.create({
-        trigger: tl2, start: 'top 78%', end: 'bottom 70%', scrub: 0.4,
-        onUpdate: function(self){ setProgress(self.progress); }
-      });
-    } else {
-      setProgress(1);
-    }
-  })();
-
-  // GSAP animações
-  (function(){
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!window.gsap || reduce) return;
-    gsap.registerPlugin(ScrollTrigger);
-    document.documentElement.classList.add('gsap-ready');
-
-    // Entrada do hero
-    gsap.from('[data-hero]', {
-      y: 30, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12, delay: 0.15
-    });
-
-    // Rise genérico no scroll
-    gsap.utils.toArray('.g-rise').forEach(function(el){
-      gsap.to(el, {
-        scrollTrigger: { trigger: el, start: 'top 86%' },
-        y: 0, opacity: 1, duration: 0.7, ease: 'power2.out'
-      });
-    });
-
-    // Stagger em grids
-    ['.frutas-grid', '.steps', '.vend-grid', '.values-row'].forEach(function(sel){
-      var grid = document.querySelector(sel);
-      if (!grid) return;
-      var items = grid.querySelectorAll('.g-rise');
-      if (!items.length) return;
-      gsap.to(items, {
-        scrollTrigger: { trigger: grid, start: 'top 82%' },
-        y: 0, opacity: 1, duration: 0.6, ease: 'power2.out', stagger: 0.09
-      });
-    });
-
-    // Contadores animados
-    gsap.utils.toArray('.stat .n').forEach(function(el){
-      var target = +el.getAttribute('data-count');
-      var suffix = el.getAttribute('data-suffix') || '';
-      var obj = { v: 0 };
-      gsap.to(obj, {
-        v: target, duration: 1.6, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%' },
-        onUpdate: function(){ el.textContent = Math.round(obj.v) + suffix; }
-      });
-    });
-
-    // Parallax sutil no vídeo do hero
-    gsap.to('.hero__video', {
-      yPercent: 14, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-    });
-
-    ScrollTrigger.refresh();
-  })();
-
-  // Hamburger menu
-  (function(){
-    var burger = document.getElementById('navBurger');
-    var menu = document.getElementById('navMobile');
-    var nav = document.querySelector('.nav');
-    if (!burger || !menu) return;
-    function closeMenu(){
-      menu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-      menu.setAttribute('aria-hidden','true');
-    }
-    burger.addEventListener('click', function(){
-      var open = menu.classList.toggle('open');
-      burger.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      menu.setAttribute('aria-hidden', String(!open));
-    });
-    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
-    document.addEventListener('click', function(e){ if (!nav.contains(e.target)) closeMenu(); });
-  })();
-
-  // Touch pause nos marquees + texto de dica adaptado
-  (function(){
-    var isTouch = 'ontouchstart' in window;
-    if (isTouch) {
-      var hint = document.querySelector('.depo-hint');
-      if (hint) hint.textContent = 'Toque para pausar';
-    }
-    document.querySelectorAll('.marquee__track, .depo-track').forEach(function(track){
-      var parent = track.closest('.marquee, .depo-marquee');
-      if (!parent) return;
-      parent.addEventListener('touchstart', function(){
-        track.style.animationPlayState = 'paused';
-      }, { passive: true });
-      parent.addEventListener('touchend', function(){
-        setTimeout(function(){ track.style.animationPlayState = ''; }, 1500);
-      }, { passive: true });
-    });
-  })();
-</script>
+<script src="js/site.js" defer></script>
 </body>
 </html>
