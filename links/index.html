@@ -51,11 +51,11 @@
   --papel:   #FAF9F5;
   --fonte:   'Montserrat', -apple-system, system-ui, sans-serif;
 
-  --glass-bg:     linear-gradient(135deg, rgba(255,255,255,.20) 0%, rgba(255,255,255,.06) 100%), rgba(22,53,11,.06);
-  --glass-bg-hi:  linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.12) 100%), rgba(22,53,11,.06);
-  --glass-line:   rgba(255,255,255,.42);
-  --glass-shadow: 0 10px 28px rgba(0,0,0,.12);
-  --blur: blur(28px) saturate(170%) brightness(1.16);
+  --glass-bg:     linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.02) 60%, rgba(255,255,255,.04) 100%), rgba(22,53,11,.03);
+  --glass-bg-hi:  linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.07) 100%), rgba(22,53,11,.03);
+  --glass-line:   rgba(255,255,255,.28);
+  --glass-shadow: 0 10px 30px -22px rgba(0,0,0,.6);
+  --blur: blur(26px) saturate(1.2);
 
   --ease: cubic-bezier(.22,.61,.36,1);
   --sat: env(safe-area-inset-top, 0px);
@@ -113,9 +113,9 @@ img, svg, video { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
   margin-inline: auto;
-  padding: calc(22px + var(--sat)) 20px calc(20px + var(--sab));
+  padding: max(36px, var(--sat)) 20px max(20px, var(--sab));
 }
 
 /* topo */
@@ -123,7 +123,7 @@ img, svg, video { display: block; max-width: 100%; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 12px;
+  padding-top: 0;
   flex: 0 0 auto;
 }
 .brand__logo {
@@ -134,7 +134,7 @@ img, svg, video { display: block; max-width: 100%; }
   filter: drop-shadow(0 8px 22px rgba(0,0,0,.4));
 }
 .brand__tag {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   max-width: 26ch;
   text-align: center;
   font-size: 13.5px;
@@ -152,7 +152,7 @@ img, svg, video { display: block; max-width: 100%; }
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-  padding: 20px 0 12px;
+  padding: 28px 0;
   list-style: none;
   margin: 0;
 }
@@ -161,16 +161,17 @@ img, svg, video { display: block; max-width: 100%; }
   position: relative;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
-  min-height: 78px;
-  padding: 14px 16px 14px 14px;
-  border-radius: 22px;
+  height: 64px;
+  padding: 0 16px;
+  border-radius: 18px;
   border: 1px solid var(--glass-line);
   background: var(--glass-bg);
   -webkit-backdrop-filter: var(--blur);
   backdrop-filter: var(--blur);
-  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,.6), inset 0 -1px 0 rgba(255,255,255,.08), inset 1px 0 0 rgba(255,255,255,.14);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,.32), inset 0 -1px 0 rgba(255,255,255,.05);
+  transform: translateZ(0); /* camada própria para o filtro (evita glitches no iOS) */
   text-align: left;
   cursor: pointer;
   overflow: hidden;
@@ -186,47 +187,44 @@ img, svg, video { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(115deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.10) 28%, rgba(255,255,255,0) 52%),
-    linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 38%);
+  background: linear-gradient(115deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.03) 30%, rgba(255,255,255,0) 50%);
 }
-.tile:hover { background: var(--glass-bg-hi); border-color: rgba(255,255,255,.5); }
-.tile:active, .tile.is-pressed { transform: scale(.975); opacity: .92; background: var(--glass-bg-hi); }
+.tile:hover { background: var(--glass-bg-hi); border-color: rgba(255,255,255,.38); }
+.tile:active, .tile.is-pressed { transform: translateZ(0) scale(.985); opacity: .9; background: var(--glass-bg-hi); }
 
 .tile__ic {
   flex: none;
-  width: 42px; height: 42px;
+  width: 44px; height: 44px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.3);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.22);
 }
-.tile__ic svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tile__ic svg { width: 21px; height: 21px; stroke: #fff; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .tile__ic svg.fill { fill: #fff; stroke: none; }
 .tile__t { flex: 1; min-width: 0; text-shadow: 0 1px 10px rgba(10,26,5,.55), 0 0 2px rgba(10,26,5,.35); }
-.tile__t b { display: block; font-size: 16px; font-weight: 700; line-height: 1.2; letter-spacing: -.015em; }
-.tile__t span { display: block; margin-top: 3px; font-size: 12.5px; font-weight: 500; line-height: 1.3; color: rgba(255,255,255,.78); }
-.tile__go { flex: none; width: 16px; height: 16px; stroke: rgba(255,255,255,.5); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s var(--ease), stroke .2s var(--ease); }
+.tile__t b { display: block; font-size: 16.3px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
+.tile__t span { display: block; margin-top: 2px; font-size: 13.1px; font-weight: 500; line-height: 1.3; color: rgba(255,255,255,.72); }
+.tile__go { flex: none; width: 20px; height: 20px; stroke: rgba(255,255,255,.8); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s var(--ease), stroke .2s var(--ease); }
 .tile:hover .tile__go, .tile:active .tile__go, .tile.is-pressed .tile__go { transform: translateX(3px); stroke: #fff; }
 
 /* CTA principal */
 .tile--main {
-  min-height: 94px;
-  margin-bottom: 4px;
+  height: 68px;
+  margin-bottom: 0;
   background: linear-gradient(135deg, #FF7A36 0%, var(--laranja) 55%, #E84A00 100%);
   border-color: rgba(255,255,255,.42);
-  box-shadow: 0 16px 40px rgba(252,81,1,.42), inset 0 1px 0 rgba(255,255,255,.45);
+  box-shadow: 0 18px 40px -16px rgba(252,81,1,.85), inset 0 1px 0 rgba(255,255,255,.45);
 }
 .tile--main::before { background: linear-gradient(115deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 30%, rgba(255,255,255,0) 55%); }
 .tile--main:hover { background: linear-gradient(135deg, #FF8A4A 0%, #FF5C10 55%, #F04D00 100%); border-color: rgba(255,255,255,.6); }
 .tile--main:active, .tile--main.is-pressed { background: linear-gradient(135deg, #FF8A4A 0%, #FF5C10 55%, #F04D00 100%); }
-.tile--main .tile__ic { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.38); width: 52px; height: 52px; }
-.tile--main .tile__ic svg { width: 28px; height: 28px; }
-.tile--main .tile__t b { font-size: 21px; font-weight: 800; letter-spacing: -.02em; }
-.tile--main .tile__t span { color: rgba(255,255,255,.92); font-size: 13.5px; }
-.tile--main .tile__go { stroke: #fff; width: 18px; height: 18px; }
+.tile--main .tile__ic { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.38); }
+.tile--main .tile__ic svg { width: 22px; height: 22px; }
+.tile--main .tile__t b { font-size: 17.3px; font-weight: 800; letter-spacing: -.01em; }
+.tile--main .tile__t span { color: rgba(255,255,255,.9); font-size: 13.1px; }
+.tile--main .tile__go { stroke: #fff; }
 
 /* rodapé: ações terciárias */
 .foot { flex: 0 0 auto; text-align: center; }
@@ -234,7 +232,7 @@ img, svg, video { display: block; max-width: 100%; }
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -243,28 +241,29 @@ img, svg, video { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 0 15px;
+  height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.32);
-  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.45);
-  -webkit-backdrop-filter: blur(18px) saturate(160%) brightness(1.12);
-  backdrop-filter: blur(18px) saturate(160%) brightness(1.12);
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  color: rgba(255,255,255,.8);
+  border: 1px solid var(--glass-line);
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  transform: translateZ(0);
+  font-size: 13.1px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #fff;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: background .2s var(--ease), color .2s var(--ease), transform .12s var(--ease);
 }
-.chip:hover { background: rgba(255,255,255,.1); color: #fff; }
+.chip:hover { background: var(--glass-bg-hi); border-color: rgba(255,255,255,.38); }
 .chip:active { transform: scale(.96); }
 .chip svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
 .chip svg.stroke { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.copy { margin: 14px 0 0; font-size: 11px; font-weight: 500; letter-spacing: .04em; color: rgba(255,255,255,.42); }
+.copy { margin: 12px 0 0; font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.45); }
 .chip--icon { width: 44px; padding: 0; justify-content: center; }
 .chip--icon span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .chip { position: relative; }
@@ -479,18 +478,10 @@ img, svg, video { display: block; max-width: 100%; }
 @media (max-width: 400px) {
   .hub { padding-inline: 16px; }
 }
-/* mobile: os cards ficam direto sobre o vídeo (sem o cartão do desktop) — um pouco mais de luz */
-@media (max-width: 599px) {
-  .tile:not(.tile--main) {
-    background: linear-gradient(135deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.08) 100%), rgba(22,53,11,.05);
-    -webkit-backdrop-filter: blur(30px) saturate(175%) brightness(1.22);
-    backdrop-filter: blur(30px) saturate(175%) brightness(1.22);
-  }
-}
 /* fallback: sem backdrop-filter, vidro translúcido claro (nunca bloco cinza) */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .tile:not(.tile--main) { background: linear-gradient(135deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.18) 100%), rgba(22,53,11,.28); }
-  .chip { background: rgba(255,255,255,.16); }
+  .tile:not(.tile--main) { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0)), rgba(10,26,5,.55); }
+  .chip { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0)), rgba(10,26,5,.55); }
   .tile__t b { text-shadow: 0 1px 10px rgba(10,26,5,.6); }
 }
 
@@ -508,8 +499,8 @@ img, svg, video { display: block; max-width: 100%; }
     min-height: 0;
     height: min(860px, calc(100vh - 64px));
     height: min(860px, calc(100dvh - 64px));
-    width: 430px;
-    padding: 36px 28px 28px;
+    width: 440px;
+    padding: 36px 24px 24px;
     border-radius: 44px;
     border: 1px solid rgba(255,255,255,.2);
     background: linear-gradient(180deg, rgba(10,26,5,.30) 0%, rgba(10,26,5,.12) 40%, rgba(10,26,5,.34) 100%);
