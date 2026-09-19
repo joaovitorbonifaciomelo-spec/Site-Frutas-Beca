@@ -176,6 +176,16 @@
     document.querySelectorAll('#whereDir, [data-maps="dir"]').forEach(function (a) { a.href = LOC.googleDirectionsUrl; });
     document.querySelectorAll('#whereOpen, [data-maps="place"]').forEach(function (a) { a.href = LOC.googleMapsUrl; });
 
+    // mapa real: só carrega quando a seção estiver perto (não pesa a home)
+    var frame = document.getElementById('whereMap');
+    if (frame && LOC.googleMapsEmbedUrl) {
+      var loadMap = function () { if (!frame.src) frame.src = LOC.googleMapsEmbedUrl; };
+      if ('IntersectionObserver' in window) {
+        var mio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { loadMap(); mio.disconnect(); } }, { rootMargin: '600px 0px' });
+        mio.observe(frame);
+      } else loadMap();
+    }
+
     function track (name) {
       try { (window.dataLayer = window.dataLayer || []).push({ event: 'site_' + name }); } catch (e) {}
     }

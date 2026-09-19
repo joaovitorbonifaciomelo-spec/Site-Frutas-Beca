@@ -16,7 +16,10 @@ window.BECA_LOCATION = {
   // Ficha da Frutas Beca (Maps URLs API, sem chave; abre o app quando disponível)
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Frutas+Beca&query_place_id=ChIJf5huAZ3yXpMRE8wybFZGO4I',
   // Rota até a Frutas Beca a partir da posição do usuário
-  googleDirectionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Frutas+Beca&destination_place_id=ChIJf5huAZ3yXpMRE8wybFZGO4I'
+  googleDirectionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Frutas+Beca&destination_place_id=ChIJf5huAZ3yXpMRE8wybFZGO4I',
+  // Mapa real incorporado (sem chave). O embed por Place ID não resolve sem chave;
+  // a busca "nome + CEASA" resolve para a ficha da Frutas Beca (marcador dentro da CEASA, BR-153).
+  googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Frutas+Beca+CEASA+Goi%C3%A2nia&z=16&hl=pt-BR&output=embed'
 };
 // Endereço completo em uma linha (copiar endereço / vCard)
 window.BECA_LOCATION.address =
