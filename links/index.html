@@ -510,9 +510,9 @@ img, svg, video { display: block; max-width: 100%; }
 </head>
 <body>
 
-<!-- Fundo: poster (CSS) + vídeo injetado após o load -->
+<!-- Fundo: poster (CSS) imediato + vídeo iniciado pelo script (não bloqueia a UI) -->
 <div class="bg" aria-hidden="true">
-  <video muted loop playsinline preload="none" poster="../videos/links-poster.jpg"
+  <video autoplay muted loop playsinline webkit-playsinline preload="none" poster="../videos/links-poster.jpg"
          data-src-hd="../videos/links-bg.mp4"
          data-src-sd="../videos/links-bg-sd.mp4"></video>
 </div>
@@ -913,27 +913,69 @@ img, svg, video { display: block; max-width: 100%; }
     }
   });
 
-  /* ---------- VÍDEO DE FUNDO: depois do load, nunca bloqueia, variante por conexão ---------- */
+  /* ---------- VÍDEO DE FUNDO: nunca bloqueia a UI; poster fica até o vídeo tocar de verdade ---------- */
   (function () {
     var v = d.querySelector('.bg video'); if (!v) return;
+    var DEV = /localhost|127\.0\.0\.1|192\.168\.|[?&]debug=1/.test(w.location.href);
+    function log () { if (DEV && w.console) console.log.apply(console, ['[bg-video]'].concat([].slice.call(arguments))); }
+
+    // 1) decisão: poster / SD / HD (e o motivo)
     var c = navigator.connection || {};
-    var et = c.effectiveType || '4g';
-    if (reduce || c.saveData || /(^|[^0-9])2g/.test(et)) { v.parentNode.removeChild(v); return; }
-    var sd = /3g/.test(et) || (w.innerWidth <= 400 && (w.devicePixelRatio || 1) < 2);
-    var src = v.getAttribute(sd ? 'data-src-sd' : 'data-src-hd');
-    function start () {
-      var s = d.createElement('source'); s.src = src; s.type = 'video/mp4'; v.appendChild(s);
-      v.load();
-      var p = v.play(); if (p && p.catch) p.catch(function () {});
-      v.addEventListener('playing', function () { v.classList.add('is-playing'); }, { once: true });
-      v.addEventListener('error', function () { if (v.parentNode) v.parentNode.removeChild(v); }, { once: true });
-      // sem progresso em 8s (conexão ruim): fica só o poster
-      setTimeout(function () { if (!v.classList.contains('is-playing') && v.parentNode) { v.pause(); v.parentNode.removeChild(v); } }, 8000);
+    var et = String(c.effectiveType || '');
+    var dpr = w.devicePixelRatio || 1, cssW = w.innerWidth;
+    var variant, reason;
+    if (reduce)                         { variant = 'poster'; reason = 'prefers-reduced-motion'; }
+    else if (c.saveData === true)       { variant = 'poster'; reason = 'Save-Data'; }
+    else if (/slow-2g|(^|[^0-9])2g$/.test(et)) { variant = 'poster'; reason = 'effectiveType=' + et; }
+    else if (/3g/.test(et))             { variant = 'sd';     reason = 'effectiveType=3g'; }
+    else                                { variant = (cssW * dpr <= 540) ? 'sd' : 'hd'; reason = 'viewport ' + cssW + 'px x DPR ' + dpr; }
+    log('variante:', variant, '| motivo:', reason, '| canPlayType avc1:', v.canPlayType('video/mp4; codecs="avc1.42E01E"') || 'vazio', '| visibility:', d.visibilityState);
+    if (variant === 'poster') { v.parentNode.removeChild(v); return; }
+    var src = v.getAttribute(variant === 'sd' ? 'data-src-sd' : 'data-src-hd');
+
+    // 2) estado exigido para autoplay inline no iOS/Android — ANTES de qualquer play()
+    v.muted = true; v.defaultMuted = true; v.autoplay = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('muted', ''); v.setAttribute('autoplay', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+
+    // 3) diagnóstico + poster→vídeo só quando estiver tocando de fato
+    var started = false;
+    ['loadedmetadata', 'loadeddata', 'canplay', 'playing', 'pause', 'stalled', 'waiting', 'ended'].forEach(function (ev) {
+      v.addEventListener(ev, function () { log(ev, 't=' + v.currentTime.toFixed(1), 'ready=' + v.readyState, 'visibility=' + d.visibilityState); });
+    });
+    v.addEventListener('playing', function () { started = true; v.classList.add('is-playing'); });
+    v.addEventListener('error', function () {
+      var e = v.error; log('erro do elemento', e && e.code, e && e.message);
+      // arquivo/decoder incompatível: fica só o poster
+      if (!started && v.parentNode) v.parentNode.removeChild(v);
+    });
+
+    function tryPlay (origin) {
+      if (!v.parentNode || !v.paused) return;
+      var p;
+      try { p = v.play(); } catch (e) { log('play() lançou', origin, e && e.name); return; }
+      if (p && p.then) p.then(function () { log('play() resolvido ←', origin); }, function (e) { log('play() rejeitado ←', origin, e && e.name, e && e.message); });
     }
-    if (d.readyState === 'complete') setTimeout(start, 120); else w.addEventListener('load', function () { setTimeout(start, 120); });
-    function resume () { if (v.paused && v.parentNode && v.classList.contains('is-playing')) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
-    w.addEventListener('pointerdown', resume, { once: true, passive: true });
-    d.addEventListener('visibilitychange', function () { if (d.visibilityState === 'visible') resume(); });
+
+    // 4) início: UI e poster já pintados; não espera window.load
+    function start () {
+      v.src = src; v.load();
+      tryPlay('start');
+      v.addEventListener('canplay', function () { if (!started) tryPlay('canplay'); });
+    }
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', function () { requestAnimationFrame(start); });
+    else requestAnimationFrame(start);
+
+    // 5) autoplay bloqueado (Low Power Mode, políticas do WebView)? primeiro gesto retenta — poster fica até lá
+    function onGesture () { if (!started) tryPlay('gesto'); else if (v.paused) tryPlay('gesto/resume'); if (started) { d.removeEventListener('touchstart', onGesture); d.removeEventListener('pointerdown', onGesture); } }
+    d.addEventListener('touchstart', onGesture, { passive: true });
+    d.addEventListener('pointerdown', onGesture, { passive: true });
+
+    // 6) pausa ao esconder; retoma ao voltar (sem load(), sem resetar currentTime)
+    d.addEventListener('visibilitychange', function () {
+      if (d.visibilityState === 'hidden') { if (!v.paused) v.pause(); }
+      else tryPlay('visible');
+    });
+    w.addEventListener('pageshow', function () { tryPlay('pageshow'); });
   })();
 })();
 </script>
