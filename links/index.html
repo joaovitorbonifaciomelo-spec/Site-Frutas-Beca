@@ -55,7 +55,7 @@
   --glass-bg-hi:  linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.07) 100%), rgba(22,53,11,.03);
   --glass-line:   rgba(255,255,255,.28);
   --glass-shadow: 0 10px 30px -22px rgba(0,0,0,.6);
-  --blur: blur(26px) saturate(.35) contrast(.98); /* neutraliza a cor do vídeo só atrás do vidro */
+  --blur: blur(26px) saturate(1);
 
   --ease: cubic-bezier(.22,.61,.36,1);
   --sat: env(safe-area-inset-top, 0px);
@@ -477,6 +477,19 @@ img, svg, video { display: block; max-width: 100%; }
 
 @media (max-width: 400px) {
   .hub { padding-inline: 16px; }
+}
+/* mobile ≤ 599px: CRISTAL — blur mínimo e sem dessaturação. Sobre a camada de <video> do WebKit,
+   blur alto + saturate baixo vira “leite”; o estado bonito do carregamento (poster) é o alvo. */
+@media (max-width: 599px) {
+  .tile:not(.tile--main), .chip {
+    background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.025) 100%);
+    border-color: rgba(255,255,255,.35);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  .tile:not(.tile--main):hover, .tile:not(.tile--main):active, .tile.is-pressed:not(.tile--main), .chip:hover {
+    background: linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.06) 100%);
+  }
 }
 /* fallback: sem backdrop-filter, vidro translúcido claro (nunca bloco cinza) */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -965,7 +978,25 @@ img, svg, video { display: block; max-width: 100%; }
       v.addEventListener(ev, function () { log(ev, 't=' + v.currentTime.toFixed(1), 'ready=' + v.readyState, 'visibility=' + d.visibilityState); });
     });
     var tPlay = 0, tSrc = 0;
+    var GLASS_PROPS = ['background', 'backgroundColor', 'backgroundImage', 'backdropFilter', 'webkitBackdropFilter', 'filter', 'opacity', 'boxShadow', 'borderColor', 'mixBlendMode', 'transform'];
+    function glassSnap () {
+      var el = d.querySelector('.tile:not(.tile--main)'); if (!el) return null;
+      var cs = getComputedStyle(el), ps = getComputedStyle(el, '::before'), o = {};
+      GLASS_PROPS.forEach(function (k) { o[k] = cs[k]; });
+      o['::before.background'] = ps.background; o['::before.opacity'] = ps.opacity;
+      o.classes = { html: d.documentElement.className, body: d.body.className, bg: d.querySelector('.bg').className, hub: d.getElementById('hub').className, tile: el.className };
+      o.data = [].map.call(d.querySelectorAll('[data-state],[data-loaded],[data-playing],[data-video]'), function (n) { return n.tagName + ':' + n.dataset; });
+      o.overlay = getComputedStyle(d.querySelector('.bg'), '::after').background;
+      return o;
+    }
+    var snapBefore = DEV ? glassSnap() : null;
+    if (DEV) log('glass ANTES de playing:', JSON.stringify(snapBefore));
     v.addEventListener('playing', function () {
+      if (!started && DEV) {
+        var after = glassSnap(), diff = {};
+        Object.keys(after).forEach(function (k) { if (JSON.stringify(after[k]) !== JSON.stringify(snapBefore[k])) diff[k] = { antes: snapBefore[k], depois: after[k] }; });
+        log('glass DEPOIS de playing — diferenças:', Object.keys(diff).length ? JSON.stringify(diff) : 'NENHUMA (CSS do card idêntico; o que muda é a camada de fundo: poster → vídeo)');
+      }
       if (!started && DEV) {
         var e = (w.performance && performance.getEntriesByName) ? performance.getEntriesByName(v.currentSrc)[0] : null;
         log('PLAYING ← src definido há', (performance.now() - tSrc).toFixed(0) + 'ms', '| play() há', (performance.now() - tPlay).toFixed(0) + 'ms',
