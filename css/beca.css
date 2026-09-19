@@ -950,8 +950,8 @@ button { font: inherit; }
   .fruits + .rail-dots { display: none; }
 
   /* --- processo: 62% conteúdo / 38% arte, arte sangra na borda direita --- */
-  .process { display: grid; grid-template-columns: minmax(0, 62%) 1fr; align-items: center; }
-  .process-sec.sec { padding-block: 72px; }
+  .process { display: grid; grid-template-columns: minmax(0, 56%) 1fr; align-items: center; }
+  .process-sec.sec { padding-block: 56px; }
   .process__text { grid-column: 1; }
   .process__text .h2 { max-width: 20ch; }
   .steps { grid-template-columns: repeat(4, 1fr); gap: 0 18px; margin-top: 34px; }
@@ -971,10 +971,13 @@ button { font: inherit; }
   .process-sec .shell { position: static; }   /* a arte se posiciona pela seção, não pelo container */
   .process-sec { position: relative; }
   .process__text { position: relative; z-index: 1; }
+  /* arte ancorada à direita, centrada na vertical, maior que a seção (sobra só sombra/pontas de folha,
+     recortada pelo overflow da seção) — proporção natural, sem distorção */
   .process__art {
     position: absolute;
-    right: 0; bottom: 0;
-    height: 66%;                   /* 1024–1279px: menor para não encostar na 4ª etapa */
+    right: 0;
+    height: 82%;                   /* 1024–1279px */
+    top: calc((100% - 82%) / 2 + 1.5%);   /* centrada; +1,5% para a sobra cortar mais sombra do que folha */
     width: auto;
     margin: 0;
     overflow: visible;
@@ -1014,10 +1017,13 @@ button { font: inherit; }
   .vends { grid-template-columns: 1fr 1fr; gap: 16px; }
 }
 @media (min-width: 1280px) {
-  .process__art { height: 82%; }
+  .process__art { height: 108%; top: calc((100% - 108%) / 2 + 1.5%); }
 }
 @media (min-width: 1440px) {
-  .process__art { height: 100%; top: 0; }
+  .process__art { height: 118%; top: calc((100% - 118%) / 2 + 1.5%); }
+}
+@media (min-width: 1700px) {
+  .process__art { height: 124%; top: calc((100% - 124%) / 2 + 1.5%); }
 }
 @media (min-width: 1280px) {
   .story { gap: 88px; }
