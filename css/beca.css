@@ -516,39 +516,40 @@ button { font: inherit; }
 .sec--light .rail-dots button.is-on::before { background: var(--lima-600); }
 
 /* ---------------------------------------------------------------
-   11. PROCESSO
+   11. PROCESSO — faixa editorial: título + 4 etapas em linha + caixa de laranjas à direita
    --------------------------------------------------------------- */
-.process__head { max-width: 30ch; }
-.process__media {
-  margin-top: 28px;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.process__media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.process-sec { overflow: hidden; background: #FDFBF7; } /* mesmo off-white do fundo da arte: a foto se funde à seção */
+.process { position: relative; }
+.process__text .h2 { max-width: 14ch; }
 
-.steps { margin-top: 28px; display: grid; gap: 12px; }
-.step {
+.steps {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
   display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 0 16px;
-  align-items: start;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 16px;
 }
-.step__ic {
-  width: 52px; height: 52px;
+.step { position: relative; display: grid; gap: 8px; justify-items: start; }
+.step__n {
+  width: 26px; height: 26px;
   border-radius: 50%;
-  background: var(--lima-100);
+  background: var(--lima);
+  color: var(--verde-folha-900);
+  font-size: 11.5px;
+  font-weight: 800;
   display: grid;
   place-items: center;
+  letter-spacing: .02em;
 }
-.step__ic svg { width: 24px; height: 24px; stroke: var(--verde-folha-700); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.step h3 { font-size: 18px; margin-bottom: 6px; }
-.step h3 i { font-style: normal; color: var(--laranja); margin-right: 6px; }
-.step p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+.step__ic { display: block; width: 30px; height: 30px; }
+.step__ic svg { width: 30px; height: 30px; stroke: var(--verde-folha-600); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.step h3 { font-size: 15.5px; line-height: 1.2; }
+.step p { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+
+/* mobile: a arte entra pela direita; só o espaço vazio da esquerda fica fora da tela */
+.process__art { margin: 24px calc(var(--pad-x) * -1) 0 0; width: calc(100% + var(--pad-x) * 2); overflow: hidden; }
+.process__art img { display: block; width: 150%; max-width: none; height: auto; margin-left: -50%; }
 
 /* ---------------------------------------------------------------
    12. EQUIPE / VENDEDORES
@@ -759,7 +760,6 @@ button { font: inherit; }
   .stat__n { font-size: 46px; }
   .stat__l { font-size: 16px; }
   .values { grid-template-columns: 1fr 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; }
   .vends { grid-template-columns: 1fr 1fr; }
   .footer__top { grid-template-columns: 1fr 1fr; text-align: left; }
   .footer__col--frutas { display: block; }
@@ -789,13 +789,12 @@ button { font: inherit; }
   .fruit { flex: 0 0 240px; }
   .quote { flex: 0 0 360px; }
 
-  .process { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-  .process__media { margin-top: 0; }
-  .process__col { grid-column: 1 / -1; }
-  .steps { margin-top: 36px; }
 
   .final { padding-block: 96px; }
   .final .btn { padding-inline: 26px; }
+  .steps { grid-template-columns: repeat(4, 1fr); gap: 0 16px; }
+  .process__art { width: calc(100% + var(--pad-x) * 2); }
+  .process__art img { width: 100%; margin-left: 0; }
   .final__media { left: 50%; }
   .final__media img { object-position: 50% 50%; }
   .final__veil {
@@ -950,34 +949,37 @@ button { font: inherit; }
   .fruit__b p { font-size: 13px; }
   .fruits + .rail-dots { display: none; }
 
-  /* --- processo --- */
-  .process { grid-template-columns: 1.3fr .7fr; gap: 24px 64px; align-items: stretch; }
-  .process__head { grid-column: 1; grid-row: 1; }
-  .process__col { grid-column: 1; grid-row: 2; align-self: end; }
-  .process__media { grid-column: 2; grid-row: 1 / 3; height: 100%; }
-  .process__media img { aspect-ratio: auto; height: 100%; }
-  .steps { grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
-  .step {
-    grid-template-columns: 1fr;
-    gap: 0;
-    background: transparent;
-    border: 0;
-    padding: 0;
-    position: relative;
-  }
+  /* --- processo: 62% conteúdo / 38% arte, arte sangra na borda direita --- */
+  .process { display: grid; grid-template-columns: minmax(0, 62%) 1fr; align-items: center; }
+  .process-sec.sec { padding-block: 72px; }
+  .process__text { grid-column: 1; }
+  .process__text .h2 { max-width: 20ch; }
+  .steps { grid-template-columns: repeat(4, 1fr); gap: 0 18px; margin-top: 34px; }
+  .step { gap: 10px; }
+  /* conector pontilhado entre as etapas, na altura do ícone */
   .step::after {
     content: "";
     position: absolute;
-    left: 62px; right: -14px; top: 26px;
-    height: 2px;
-    background: repeating-linear-gradient(90deg, var(--lima-400) 0 6px, transparent 6px 12px);
-    opacity: .7;
+    left: 42px; right: 6px; top: 51px;
+    height: 0;
+    border-top: 2px dashed rgba(166,212,10,.75);
   }
   .step:last-child::after { display: none; }
-  .step__ic { width: 52px; height: 52px; margin-bottom: 18px; }
-  .step h3 { font-size: 16.5px; min-height: 2.3em; }
-  .step p { font-size: 14.5px; }
+  .step h3 { font-size: 15px; }
+  .step p { font-size: 13px; padding-right: 10px; }
 
+  .process-sec .shell { position: static; }   /* a arte se posiciona pela seção, não pelo container */
+  .process-sec { position: relative; }
+  .process__text { position: relative; z-index: 1; }
+  .process__art {
+    position: absolute;
+    right: 0; bottom: 0;
+    height: 66%;                   /* 1024–1279px: menor para não encostar na 4ª etapa */
+    width: auto;
+    margin: 0;
+    overflow: visible;
+  }
+  .process__art img { height: 100%; width: auto; max-width: none; margin: 0; }
   /* --- equipe --- */
   .team { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
   .vends { margin-top: 0; grid-template-columns: 1fr; gap: 14px; }
@@ -1010,6 +1012,12 @@ button { font: inherit; }
 @media (min-width: 1200px) {
   .fruits { grid-template-columns: repeat(6, 1fr); }
   .vends { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (min-width: 1280px) {
+  .process__art { height: 82%; }
+}
+@media (min-width: 1440px) {
+  .process__art { height: 100%; top: 0; }
 }
 @media (min-width: 1280px) {
   .story { gap: 88px; }
