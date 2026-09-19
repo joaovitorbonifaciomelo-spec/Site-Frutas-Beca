@@ -482,13 +482,23 @@ img, svg, video { display: block; max-width: 100%; }
    blur alto + saturate baixo vira “leite”; o estado bonito do carregamento (poster) é o alvo. */
 @media (max-width: 599px) {
   .tile:not(.tile--main), .chip {
-    background: linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.025) 100%);
-    border-color: rgba(255,255,255,.35);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.02) 100%);
+    border-color: rgba(255,255,255,.42);
+    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter: blur(1.5px);
+    box-shadow:
+      0 8px 24px -18px rgba(0,0,0,.55),
+      inset 0 1px 0 rgba(255,255,255,.5),
+      inset 0 0 0 1px rgba(255,255,255,.08),
+      inset 0 -1px 0 rgba(255,255,255,.06);
+  }
+  .tile:not(.tile--main)::before {
+    background:
+      linear-gradient(115deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 46%),
+      linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 30%);
   }
   .tile:not(.tile--main):hover, .tile:not(.tile--main):active, .tile.is-pressed:not(.tile--main), .chip:hover {
-    background: linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.06) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.05) 100%);
   }
 }
 /* fallback: sem backdrop-filter, vidro translúcido claro (nunca bloco cinza) */
