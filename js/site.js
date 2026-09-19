@@ -215,6 +215,26 @@
     });
   })();
 
+  /* ---------- CRÉDITO DE DESENVOLVIMENTO (dados em js/beca-location.js → BECA_SITE.developerCredit) ---------- */
+  (function () {
+    var c = window.BECA_SITE && window.BECA_SITE.developerCredit;
+    var el = document.querySelector('[data-credit-name]');
+    if (!c || !el) return;
+    var node = el;
+    if (c.url) {
+      var a = document.createElement('a');
+      a.href = c.url; a.target = '_blank'; a.rel = 'noopener';
+      a.className = el.className; a.setAttribute('data-credit-name', '');
+      el.parentNode.replaceChild(a, el); node = a;
+    }
+    node.textContent = c.name;
+    if (c.logo) {
+      var img = document.createElement('img');
+      img.src = c.logo; img.alt = c.name; img.className = 'footer__credit-logo'; img.loading = 'lazy';
+      node.textContent = ''; node.appendChild(img);
+    }
+  })();
+
   /* ---------- MARQUEE: pausa no toque ---------- */
   (function () {
     var track = document.querySelector('.marquee__track');

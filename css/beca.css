@@ -657,18 +657,17 @@ button { font: inherit; }
 /* ---------------------------------------------------------------
    14. CTA FINAL
    --------------------------------------------------------------- */
-.final { position: relative; background: var(--green); overflow: hidden; padding-block: 64px 140px; }
-.final__media { position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0; }
-.final__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 75%; }
-.final__veil {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(22,53,11,.97) 0%, rgba(22,53,11,.86) 48%, rgba(22,53,11,.12) 100%);
-}
+.final { position: relative; background: #0C2015; overflow: hidden; padding-block: 64px 0; } /* verde da própria fotografia */
 .final__in { position: relative; z-index: 2; }
 .final .eyebrow { color: var(--lima); }
 .final h2 { font-size: clamp(30px, 8vw, 54px); line-height: 1.05; max-width: 15ch; color: #fff; }
 .final h2 .hl { color: var(--lima); }
 .final p { margin-top: 18px; font-size: clamp(16px, 4.2vw, 19px); color: var(--on-green-2); max-width: 42ch; }
+/* mobile: enquadramento próprio — faixa abaixo do texto, abacate cortado em destaque, sem crop agressivo */
+.final__media { position: relative; height: clamp(250px, 70vw, 340px); margin-top: 32px; }
+.final__media img { width: 100%; height: 100%; object-fit: cover; object-position: 74% 50%; display: block; }
+/* a emenda entre o texto e a foto some no verde da própria imagem */
+.final__media::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 40px; background: linear-gradient(180deg, #0C2015, rgba(12,32,21,0)); z-index: 1; }
 .final .btn { margin-top: 28px; padding-inline: 18px; }
 
 /* ---------------------------------------------------------------
@@ -716,6 +715,26 @@ button { font: inherit; }
   font-size: 13px;
   color: rgba(169,192,143,.6);
 }
+
+/* crédito de desenvolvimento */
+.footer__credit {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 6px;
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: .02em;
+}
+.footer__credit-by { color: rgba(169,192,143,.55); }
+.footer__credit-name { color: rgba(231,240,220,.85); font-weight: 700; }
+a.footer__credit-name { text-decoration: none; transition: color var(--t); }
+a.footer__credit-name:hover { color: var(--lima); }
+.footer__credit-logo { height: 16px; width: auto; opacity: .85; vertical-align: middle; }
 
 /* WhatsApp flutuante (mobile) */
 .wa-float {
@@ -769,6 +788,7 @@ button { font: inherit; }
   .footer__brand p { margin-inline: 0; }
   .social { justify-content: flex-start; }
   .footer__bottom { grid-auto-flow: column; justify-content: space-between; text-align: left; }
+  .footer__credit { justify-content: flex-start; text-align: left; }
 }
 
 /* =====================================================================
@@ -790,16 +810,12 @@ button { font: inherit; }
   .quote { flex: 0 0 360px; }
 
 
-  .final { padding-block: 96px; }
+  .final { padding-block: 96px 0; }
   .final .btn { padding-inline: 26px; }
   .steps { grid-template-columns: repeat(4, 1fr); gap: 0 16px; }
   .process__art { width: calc(100% + var(--pad-x) * 2); }
   .process__art img { width: 100%; margin-left: 0; }
-  .final__media { left: 50%; }
-  .final__media img { object-position: 50% 50%; }
-  .final__veil {
-    background: linear-gradient(90deg, var(--green) 0%, var(--green) 48%, rgba(22,53,11,.72) 58%, rgba(22,53,11,.08) 80%, rgba(22,53,11,.0) 100%);
-  }
+  .final__media { height: clamp(300px, 42vw, 420px); }
 
   .footer__top { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; }
 }
@@ -1002,6 +1018,27 @@ button { font: inherit; }
   /* --- CTA final --- */
   .final { padding-block: clamp(110px, 9vw, 150px); }
   .final h2 { font-size: clamp(42px, 3.9vw, 56px); }
+  .final { padding-block: 96px; min-height: 0; }
+  .final__in { max-width: 1280px; padding-right: 50%; }   /* o texto nunca passa por trás da foto */
+  /* A foto ocupa toda a altura da seção, ancorada à direita, na proporção natural (height:100%, width:auto).
+     Como a seção é mais baixa que larga, só as bordas ESQUERDAS da foto (fundo escuro vazio) ficam fora —
+     o abacate cortado, o caroço e os frutos ficam inteiros. A borda esquerda esmaece na cor da seção. */
+  .final__media {
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: auto;
+    width: auto; height: auto;
+    margin: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+  }
+  .final__media img { height: 100%; width: auto; max-width: none; object-fit: fill; object-position: right center; }
+  .final__media::before { content: none; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* telas de 1024–1279: foto um pouco mais baixa, alinhada à base, para o texto não encostar nos frutos */
+  .final__media { top: auto; height: 78%; }
+  .final__in { padding-right: 46%; }
+  .final h2 { font-size: 40px; }
 
   /* --- footer --- */
   .footer { padding-block: 72px 32px; }

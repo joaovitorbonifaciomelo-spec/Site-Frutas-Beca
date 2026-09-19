@@ -26,3 +26,12 @@ window.BECA_LOCATION.address =
   window.BECA_LOCATION.name + ' — ' + window.BECA_LOCATION.place + ', ' +
   window.BECA_LOCATION.street + ', ' + window.BECA_LOCATION.complement + ', ' +
   window.BECA_LOCATION.city + ' - ' + window.BECA_LOCATION.state;
+
+/* Crédito de desenvolvimento no rodapé. Quando houver URL/logo oficial da Bonifácio,
+   basta preencher aqui — o footer se atualiza sozinho (js/site.js). */
+window.BECA_SITE = window.BECA_SITE || {};
+window.BECA_SITE.developerCredit = {
+  name: 'Bonifácio Marketing Digital',
+  url: null,    // ex.: 'https://instagram.com/bonifacio...' — null = texto sem link
+  logo: null    // ex.: 'assets/bonifacio.svg' — null = só texto
+};
