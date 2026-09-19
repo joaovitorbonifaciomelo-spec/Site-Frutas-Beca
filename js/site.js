@@ -168,6 +168,43 @@
     sections.forEach(function (s) { io.observe(s); });
   })();
 
+  /* ---------- ONDE ESTAMOS: fonte única de localização, copiar endereço, toast ---------- */
+  (function () {
+    var LOC = window.BECA_LOCATION;
+    if (!LOC) return;
+    // todos os CTAs de mapa apontam para a ficha/rota da Frutas Beca (Place ID)
+    document.querySelectorAll('#whereDir, [data-maps="dir"]').forEach(function (a) { a.href = LOC.googleDirectionsUrl; });
+    document.querySelectorAll('#whereOpen, [data-maps="place"]').forEach(function (a) { a.href = LOC.googleMapsUrl; });
+
+    function track (name) {
+      try { (window.dataLayer = window.dataLayer || []).push({ event: 'site_' + name }); } catch (e) {}
+    }
+    document.querySelectorAll('[data-track]').forEach(function (el) {
+      el.addEventListener('click', function () { track(el.getAttribute('data-track')); });
+    });
+
+    var toast = document.getElementById('toast'), tt = null;
+    function showToast (msg) {
+      if (!toast) return;
+      toast.textContent = msg; toast.classList.add('is-on');
+      clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove('is-on'); }, 2200);
+    }
+    function copyText (text) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+      return new Promise(function (res, rej) {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta); ok ? res() : rej();
+      });
+    }
+    var copyBtn = document.getElementById('whereCopy');
+    if (copyBtn) copyBtn.addEventListener('click', function () {
+      copyText(LOC.address).then(function () { showToast('Endereço copiado'); }, function () { showToast('Não foi possível copiar'); });
+    });
+  })();
+
   /* ---------- MARQUEE: pausa no toque ---------- */
   (function () {
     var track = document.querySelector('.marquee__track');
