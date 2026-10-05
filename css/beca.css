@@ -341,6 +341,9 @@ button { font: inherit; }
 }
 .marquee__track img:hover { opacity: 1; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* no mobile os logos são menores → trilho mais curto; duração menor para manter a mesma sensação de velocidade */
+@media (max-width: 767px) { .marquee__track { animation-duration: 6s; } }
+@media (min-width: 768px) and (max-width: 1023px) { .marquee__track { animation-duration: 9s; } }
 
 /* ---------------------------------------------------------------
    8. NÚMEROS / AUTORIDADE
