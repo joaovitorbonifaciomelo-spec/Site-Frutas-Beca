@@ -327,7 +327,8 @@ button { font: inherit; }
   display: flex;
   width: max-content;
   align-items: center;
-  gap: clamp(44px, 7vw, 96px);
+  --mq-gap: clamp(44px, 7vw, 96px);
+  gap: var(--mq-gap);
   animation: marquee 12s linear infinite;
 }
 .marquee:hover .marquee__track { animation-play-state: paused; }
@@ -340,7 +341,10 @@ button { font: inherit; }
   transition: opacity var(--t);
 }
 .marquee__track img:hover { opacity: 1; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Loop sem salto: o trilho tem 10 logos e 9 intervalos, então metade da largura
+   equivale a 5 logos + 4,5 intervalos. O deslocamento certo é 5 logos + 5 intervalos
+   (= -50% - metade do gap), para o 6º logo cair exatamente onde o 1º estava. */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - var(--mq-gap) / 2)); } }
 /* no mobile os logos são menores → trilho mais curto; duração menor para manter a mesma sensação de velocidade */
 @media (max-width: 767px) { .marquee__track { animation-duration: 6s; } }
 @media (min-width: 768px) and (max-width: 1023px) { .marquee__track { animation-duration: 9s; } }
