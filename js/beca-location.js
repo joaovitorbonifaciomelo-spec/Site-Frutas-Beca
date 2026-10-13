@@ -31,7 +31,7 @@ window.BECA_LOCATION.address =
    basta preencher aqui — o footer se atualiza sozinho (js/site.js). */
 window.BECA_SITE = window.BECA_SITE || {};
 window.BECA_SITE.developerCredit = {
-  name: 'Bonifácio Marketing Digital',
-  url: null,    // ex.: 'https://instagram.com/bonifacio...' — null = texto sem link
-  logo: null    // ex.: 'assets/bonifacio.svg' — null = só texto
+  name: 'Bonifácio',
+  url: 'https://bonifacioconsultoria.com.br',
+  logo: 'assets/bonifacio-branco.svg'
 };

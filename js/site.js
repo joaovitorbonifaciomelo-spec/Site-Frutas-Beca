@@ -221,6 +221,8 @@
     var el = document.querySelector('[data-credit-name]');
     if (!c || !el) return;
     var node = el;
+    // se o HTML já entrega o link e a logo, não há nada a fazer
+    if (el.tagName === 'A' && el.querySelector('img')) return;
     if (c.url) {
       var a = document.createElement('a');
       a.href = c.url; a.target = '_blank'; a.rel = 'noopener';

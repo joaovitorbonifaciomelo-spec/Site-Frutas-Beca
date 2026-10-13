@@ -747,7 +747,15 @@ button { font: inherit; }
 .footer__credit-name { color: rgba(231,240,220,.85); font-weight: 700; }
 a.footer__credit-name { text-decoration: none; transition: color var(--t); }
 a.footer__credit-name:hover { color: var(--lima); }
-.footer__credit-logo { height: 16px; width: auto; opacity: .85; vertical-align: middle; }
+a.footer__credit-name { display: inline-flex; align-items: center; }
+.footer__credit-logo {
+  height: 17px;
+  width: auto;
+  display: block;
+  opacity: .72;
+  transition: opacity var(--t);
+}
+a.footer__credit-name:hover .footer__credit-logo { opacity: 1; }
 
 /* WhatsApp flutuante (mobile) */
 .wa-float {
